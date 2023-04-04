@@ -16,6 +16,7 @@ return new class extends Migration
             $table->multiLineString('title');
             $table->text('description');
             $table->date('created_at');
+            $table->date('updated_at');
         });
     }
 

@@ -8,8 +8,6 @@
 </head>
 <body>
 
-
-
     <div class="flex flex-col gap-y-[15px] fixed top-[50%] left-[50px] top-1/2 transform  -translate-y-1/2" >
       <div class="border border-white w-[58px] h-[58px] rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">En</div>
         <div class="border border-white w-[58px] h-[58px] rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">Ka</div>
@@ -22,7 +20,7 @@
 
           <img class="max-w-700 rounded-md" src="{{ asset('image.png') }}" alt="Movie Scene">
           <h1 class="text-3xl font-bold text-white mt-16 mb-28">“What should I tell you your mother?!”</h1>
-          <h1 class="text-3xl font-bold text-white underline font-roboto">The Son of Soldier</h1>
+          <a href="/listing" class="text-3xl font-bold text-white underline font-roboto">The Son of Soldier</a>
 
       </div>
 

@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+    background-image: radial-gradient(
+        50% 50% at 50% 50%,
+        #4e4e4e 0%,
+        #3d3b3b 99.99%,
+        #3d3b3b 100%
+    );
 }

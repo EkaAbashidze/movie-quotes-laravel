@@ -14,7 +14,7 @@
   <div class="max-w-md w-full">
         <div class="bg-white p-8 rounded-lg shadow-lg">
             <h1 class="text-3xl font-bold mb-4">Login</h1>
-            <form method="POST" action="{{ route('admin.authorization') }}">
+            <form method="POST" action="{{ route('admin.dashboard') }}">
                 @csrf
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="email">

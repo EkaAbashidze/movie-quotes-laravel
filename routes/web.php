@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,9 @@ Route::get('/', [MoviesController::class, 'index'])->name('home');
 Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.show');
 
 Route::get('admin/authorization', [SessionsController::class, 'create'])->name('admin.authorization');
+
+Route::post('admin/dashboard', [SessionsController::class, 'store'])->name('admin.dashboard');
+
+Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('quotespanel');
 
 // ბოლო როუტზე middleware არ მუშაობს

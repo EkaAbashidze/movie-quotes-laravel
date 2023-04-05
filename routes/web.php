@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MoviesController::class, 'index'])->name('home');
 
 Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.show');
+
+Route::get('admin/authorization', [SessionsController::class, 'create'])->name('admin.authorization');
+
+// ბოლო როუტზე middleware არ მუშაობს

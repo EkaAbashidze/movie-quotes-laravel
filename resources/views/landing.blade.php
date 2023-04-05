@@ -18,15 +18,15 @@
 
       <div class="mx-auto text-center flex flex-col content-center justify-evenly items-center">
 
-          <img class="max-w-700 rounded-md" src="{{ asset('image.png') }}" alt="Movie Scene">
-          <h1 class="text-3xl font-bold text-white mt-16 mb-28">“What should I tell you your mother?!”</h1>
-          <a href="/listing" class="text-3xl font-bold text-white underline font-roboto">The Son of Soldier</a>
+      <img class="max-w-700 rounded-md" src="{{ asset('image.png') }}" alt="{{ __('Movie Scene') }}">
+      <h1 class="text-3xl font-bold text-white mt-16 mb-28 max-w-[1000px]">{{ __($movie->description) }}</h1>
+      @if($movie)
+        <a href="{{ route('movies.show', $movie->id) }}" class="text-3xl font-bold text-white underline font-roboto">{{ __($movie->title) }}</a>
+      @endif
 
       </div>
 
     </div>
-
-
 
 </body>
 </html>

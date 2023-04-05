@@ -18,8 +18,9 @@
 
       <div class="mx-auto text-center flex flex-col content-center justify-evenly items-center">
 
-      <img class="max-w-700 rounded-md" src="{{ asset('image.png') }}" alt="{{ __('Movie Scene') }}">
-      <h1 class="text-3xl font-bold text-white mt-16 mb-28 max-w-[1000px]">{{ __($movie->description) }}</h1>
+      <img class="max-w-700 rounded-md" src="{{ asset('storage/thumbnails/image.png') }}" alt="{{ __('Movie Scene') }}">
+
+      <h1 class="text-3xl font-bold text-white mt-16 mb-28 max-w-[800px]">{{ __($movie->quotes()->inRandomOrder()->first()->text) }}</h1>
       @if($movie)
         <a href="{{ route('movies.show', $movie->id) }}" class="text-3xl font-bold text-white underline font-roboto">{{ __($movie->title) }}</a>
       @endif

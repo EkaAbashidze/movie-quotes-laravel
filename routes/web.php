@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MoviesController::class, 'index'])->name('home');
 
 Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.show');
+
+Route::get('admin/authorization', [SessionsController::class, 'create'])->name('admin.authorization');
+
+
+Route::prefix('admin')->middleware('admin')->group(function () {
+
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.panel');
+
+    Route::post('/dashboard', [SessionsController::class, 'store'])->name('admin.dashboard');
+});

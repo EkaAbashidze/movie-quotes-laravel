@@ -39,15 +39,3 @@ class SessionsController extends Controller
     }
 
 }
-
-// ეს ვალიდაცია უნდა გავიდეს Request directory-ში?
-// Request-ებში უნდა შევქმნა: StoreMovieRequest.php და StoreQuoteRequest.php
-// ყველაფერს ვაბრუნებინებთ 200 status code-ს დამატებით:
-
-// return response()->json(['post'=>$post], 200); (ეს გეთზე, get)
-
-// return response()->json(['post'=>$post], 201); (ეს დააფდეითებულ მოდელზე, store), როცა მაგ
-// $post = Post::create - ს ვაკეთებთ
-
-
-// return response()->json(status: 204); (update , destroy)

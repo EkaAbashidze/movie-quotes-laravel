@@ -10,13 +10,13 @@
 <body>
 
 
-<div class="flex flex-row h-screen w-full">
+<div class="flex flex-row min-h-screen w-full">
     <div class="flex flex-col bg-blue-dark text-white w-64">
         <div class="p-8 text-3xl font-bold">Admin Panel</div>
         <ul class="flex flex-col p-8">
           <li class="py-2 hover:underline"><a href="#">Main Page</a></li>
           <li class="py-2 hover:underline"><a href="#">Create Movie</a></li>
-          <li class="py-2 hover:underline"><a href="#">Create Quote</a></li>
+          <li class="py-2 hover:underline"><a href="{{ route('quotes.create') }}">Create Quote</a></li>
           <li class="py-2 hover:underline">
 
           <form method="POST" action="{{ route('logout') }}">
@@ -71,10 +71,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 </body>
 </html>

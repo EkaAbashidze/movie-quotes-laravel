@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,22 +23,20 @@ Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.
 
 Route::get('admin/authorization', [SessionsController::class, 'index'])->name('admin.authorization');
 
+Route::post('admin/authorization', [SessionsController::class, 'login'])->name('admin.authorized');
 
 
 Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
-    Route::get('', [AdminDashboardController::class, 'index'])->name('admin.panel');
+    Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
-    Route::post('', [SessionsController::class, 'login'])->name('admin.dashboard');
 });
 
 Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 
-// edit - view-ს რედაქტირების ფეიჯი
-// update - ქმედება
-// destroy - წაშლა
 
-// კონცენციური შეცდომები მაქვს. SessionsController უნდა იყოს AuthController, store უნდა იყოს login, 
-// MoviesController - მხოლობითში, MovieController
 
-// უნდა დავამატო ტიპები, return and argument types
+
+Route::get('/create', [QuoteController::class, 'create'])->name('quotes.create');
+
+Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');

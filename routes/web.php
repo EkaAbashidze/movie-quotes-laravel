@@ -16,16 +16,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MoviesController::class, 'index'])->name('home');
+Route::middleware('guest')->group(function () {
 
-Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.show');
+    Route::get('/', [MoviesController::class, 'index'])->name('home');
 
-Route::get('admin/authorization', [SessionsController::class, 'create'])->name('admin.authorization');
+    Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.show');
 
-
-Route::prefix('admin')->middleware('admin')->group(function () {
-
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.panel');
-
-    Route::post('/dashboard', [SessionsController::class, 'store'])->name('admin.dashboard');
+    Route::get('admin/authorization', [SessionsController::class, 'create'])->name('admin.authorization');
 });
+
+
+Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
+
+    Route::get('', [AdminDashboardController::class, 'index'])->name('admin.panel');
+
+    Route::post('', [SessionsController::class, 'store'])->name('admin.dashboard');
+});
+
+Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
+
+
+
+// edit - view-ს რედაქტირების ფეიჯი
+// update - ქმედება
+// destroy - წაშლა
+
+// კონცენციური შეცდომები მაქვს. SessionsController უნდა იყოს AuthController, store უნდა იყოს login, 
+// MoviesController - მხოლობითში, MovieController
+
+// უნდა დავამატო ტიპები, return and argument types

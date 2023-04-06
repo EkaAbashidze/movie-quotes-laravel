@@ -17,7 +17,15 @@
           <li class="py-2 hover:underline"><a href="#">Main Page</a></li>
           <li class="py-2 hover:underline"><a href="#">Create Movie</a></li>
           <li class="py-2 hover:underline"><a href="#">Create Quote</a></li>
-          <li class="py-2 hover:underline"><a href="#">Log Out</a></li>
+          <li class="py-2 hover:underline">
+
+<form method="POST" action="{{ route('logout') }}">
+  @csrf
+  <button type="submit">Log Out</button>
+</form>
+
+
+          </li>
         </ul>
         <div class="flex flex-row justify-start items-center p-8">
             <div class="border border-white w-10 h-10 rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">En</div>

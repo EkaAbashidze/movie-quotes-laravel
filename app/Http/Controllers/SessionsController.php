@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class SessionsController extends Controller
 {
-    public function create(): View {
+    public function index(): View {
         return view('login');
     }
 
-    public function store(): RedirectResponse {
+    public function login(): RedirectResponse {
 
         $attributes = request()->validate([
           'email' => 'required|email',

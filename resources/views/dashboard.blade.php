@@ -19,10 +19,10 @@
           <li class="py-2 hover:underline"><a href="#">Create Quote</a></li>
           <li class="py-2 hover:underline">
 
-<form method="POST" action="{{ route('logout') }}">
-  @csrf
-  <button type="submit">Log Out</button>
-</form>
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit">Log Out</button>
+          </form>
 
 
           </li>

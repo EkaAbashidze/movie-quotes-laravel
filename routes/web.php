@@ -16,26 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('guest')->group(function () {
+Route::get('/', [MoviesController::class, 'index'])->name('home');
 
-    Route::get('/', [MoviesController::class, 'index'])->name('home');
+Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.show');
 
-    Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.show');
+Route::get('admin/authorization', [SessionsController::class, 'index'])->name('admin.authorization');
 
-    Route::get('admin/authorization', [SessionsController::class, 'create'])->name('admin.authorization');
-});
 
 
 Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::get('', [AdminDashboardController::class, 'index'])->name('admin.panel');
 
-    Route::post('', [SessionsController::class, 'store'])->name('admin.dashboard');
+    Route::post('', [SessionsController::class, 'login'])->name('admin.dashboard');
 });
 
 Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
-
-
 
 // edit - view-ს რედაქტირების ფეიჯი
 // update - ქმედება

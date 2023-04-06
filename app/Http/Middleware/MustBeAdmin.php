@@ -4,7 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+
 
 class MustBeAdmin
 {
@@ -16,8 +18,8 @@ class MustBeAdmin
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (auth()->user()?->email !== "eka.abashidze@redberry.ge") {
-            abort(403);
+        if (!auth()->check()) {
+            return redirect('/admin/authorization');
         }
 
         return $next($request);

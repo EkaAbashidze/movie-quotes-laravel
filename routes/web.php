@@ -23,9 +23,9 @@ Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.
 Route::get('admin/authorization', [SessionsController::class, 'create'])->name('admin.authorization');
 
 
+Route::prefix('admin')->middleware('admin')->group(function () {
 
-Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('quotespanel')->middleware('admin');
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.panel');
 
-Route::post('admin/dashboard', [SessionsController::class, 'store'])->name('admin.dashboard')->middleware('admin');
-
-// ბოლო როუტზე middleware არ მუშაობს
+    Route::post('/dashboard', [SessionsController::class, 'store'])->name('admin.dashboard');
+});

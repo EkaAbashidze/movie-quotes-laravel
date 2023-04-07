@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\MoviesController;
-use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,13 +30,11 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
+    Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
+
+    Route::get('/create', [QuoteController::class, 'create'])->name('quotes.create');
+
+    Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');
+
 });
 
-Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
-
-
-
-
-Route::get('/create', [QuoteController::class, 'create'])->name('quotes.create');
-
-Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');

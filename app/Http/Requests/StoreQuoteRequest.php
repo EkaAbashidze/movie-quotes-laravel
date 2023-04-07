@@ -18,7 +18,7 @@ class StoreQuoteRequest extends FormRequest
             'quote_en' => 'required|string',
             'quote_ka' => 'required|string',
             'movie_id' => 'required|exists:movies,id',
-            'thumbnail' => 'required|image',
+            'thumbnail' => 'required',
         ];
     }
 }

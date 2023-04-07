@@ -19,7 +19,6 @@ class QuoteController extends Controller
 
     public function store(StoreQuoteRequest $request)
     {
-        dd('test');
         $attributes = $request->validated();
 
         $quote = new Quote();

@@ -41,6 +41,9 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
 
+    Route::get('movies/{id}/edit', [MovieController::class, 'edit'])->name('movies.edit');
 
+    Route::put('movies/{id}', [MovieController::class, 'update'])->name('movies.update');
 });
+
 

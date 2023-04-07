@@ -43,7 +43,7 @@
                     <h3 class="text-lg font-bold mb-2">{{ $movie->title }}</h3>
                     <p class="text-gray-700 mb-2">{{ $movie->description }}</p>
                     <div class="flex gap-x-[30px]">
-                        <a href="#" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
+                        <a href="{{ route('movies.edit', $movie->id) }}" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
                         <a href="#" class="text-red-500 hover:underline">{{ __('Delete') }}</a>
                     </div>
                 </div>

@@ -17,24 +17,25 @@ class QuoteController extends Controller
         return view('create', compact('movies'));
     }
 
-public function store(StoreQuoteRequest $request)
+    public function store(StoreQuoteRequest $request)
     {
-        if ($request->input('movie')) {
-            $movieId = $request->input('movie');
-        } else {
-            $movie = Movie::create([
-            'title' => $request->input('new-movie'),
-            'description' => '...',
-        ]);
-
-            $movieId = $movie->id;
-        }
+        dd('test');
+        $attributes = $request->validated();
 
         $quote = new Quote();
-        $quote->text = $request->input('quote');
-        $quote->movie_id = $movieId;
+        $quote->text = [
+            'en' => $attributes['quote_en'],
+            'ka' => $attributes['quote_ka'],
+        ];
+        $quote->movie_id = $attributes['movie_id'];
+
+        $quote->thumbnail = $attributes['thumbnail']->store('thumbnails');
         $quote->save();
 
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
     }
+
+
 }
+
+// request()->file('thumbnail)->store('thumbnails'Z);

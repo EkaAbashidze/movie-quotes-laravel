@@ -31,7 +31,7 @@
 
         <div class="flex flex-col flex-1 bg-gray-100 p-8">
             <h2 class="text-2xl font-bold mb-8">Create Movie</h2>
-            <form method="POST" action="{{ route('movies.store') }}" class="w-[1000px] bg-white rounded-lg p-8 shadow-lg">
+            <form method="POST" action="{{ route('movies.store') }}" class="w-[1000px] bg-white rounded-lg p-8 shadow-lg" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4">
                     <label for="title" class="block text-gray-700 font-bold mb-2">Title:</label>
@@ -46,6 +46,10 @@
                     <div id="quotes-container">
                         <textarea name="quotes[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required></textarea>
                     </div>
+                </div>
+                <div class="mb-4">
+                    <label for="thumbnail" class="block text-gray-700 font-bold mb-2">Thumbnail:</label>
+                    <input type="file" id="thumbnail" name="thumbnail" class="w-full border border-gray-300 p-2 rounded-md" required>
                 </div>
                 <div class="flex w-full">
                     <button type="submit" class="bg-blue-dark text-white px-4 py-2 rounded-md text-sm font-medium flex justify-center items-center">

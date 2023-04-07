@@ -7,7 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreQuoteRequest extends FormRequest
 {
 
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -16,9 +15,10 @@ class StoreQuoteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'quote' => 'required|string',
-            'movie' => 'required_without:new-movie|nullable|exists:movies,id',
-            'new-movie' => 'required_without:movie|nullable|string|max:255',
+            'quote_en' => 'required|string',
+            'quote_ka' => 'required|string',
+            'movie_id' => 'required|exists:movies,id',
+            'thumbnail' => 'required|image',
         ];
     }
 }

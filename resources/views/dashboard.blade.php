@@ -38,7 +38,7 @@
           
         @foreach($movies as $movie)
             <div class="bg-white rounded-lg p-4 shadow-lg flex">
-                <img src="{{ asset('storage/thumbnails/image.png') }}" alt="{{ $movie->title }} thumbnail" class="h-16 w-16 rounded-md object-cover mr-4">
+                <img src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ $movie->title }} thumbnail" class="h-16 w-16 rounded-md object-cover mr-4">
                 <div>
                     <h3 class="text-lg font-bold mb-2">{{ $movie->title }}</h3>
                     <p class="text-gray-700 mb-2">{{ $movie->description }}</p>
@@ -55,7 +55,7 @@
         @foreach($quotes as $quote)
             <div class="bg-white rounded-lg p-4 shadow-lg flex">
                 <div class="flex-shrink-0 mr-4">
-                    <img src="{{ asset('storage/thumbnails/image.png') }}" alt="{{ $quote->text }}" class="w-16 h-16 rounded-md object-cover">
+                    <img src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ $quote->text }}" class="w-16 h-16 rounded-md object-cover">
                 </div>
                 <div>
                     <p class="text-lg font-bold mb-2">{{ $quote->text }}</p>

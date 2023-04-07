@@ -18,7 +18,7 @@
 
       <div class="mx-auto text-center flex flex-col content-center justify-evenly items-center">
 
-      <img class="max-w-700 rounded-md" src="{{ asset('storage/thumbnails/image.png') }}" alt="{{ __('Movie Scene') }}">
+      <img class="max-w-[700px] rounded-md" src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ __('Movie Scene') }}">
 
       <h1 class="text-3xl font-bold text-white mt-16 mb-28 max-w-[800px]">{{ __($movie->quotes()->inRandomOrder()->first()->text) }}</h1>
       @if($movie)

@@ -58,7 +58,7 @@ public function edit($id)
 
         $movie->save();
 
-        return redirect()->route('movies.index')->with('success', 'Movie updated successfully.');
+        return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
     }
 
 

@@ -31,7 +31,11 @@
 
         <div class="flex flex-col flex-1 bg-gray-100 p-8">
             <h2 class="text-2xl font-bold mb-8">Create Quote</h2>
-            <form method="POST" action="{{ route('quotes.store') }}" class="w-[1000px] bg-white rounded-lg p-8 shadow-lg">
+
+
+            <form method="POST" action="{{ route('quotes.store') }}" class="w-[1000px] bg-white rounded-lg p-8 shadow-lg" enctype="multipart/form-data">
+
+            
                 @csrf
                 <div class="mb-4">
                     <label for="quote" class="block text-gray-700 font-bold mb-2">Quote:</label>
@@ -47,9 +51,8 @@
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label for="new-movie" class="block text-gray-700 font-bold mb-2">Or create a new movie:</label>
-                    <input id="new-movie" name="new-movie" type="text" class="w-full border border-gray-300 p-2 rounded-md">
-                    
+                    <label for="thumbnail" class="block text-gray-700 font-bold mb-2">Thumbnail:</label>
+                    <input type="file" id="thumbnail" name="thumbnail" class="w-full border border-gray-300 p-2 rounded-md" required>
                 </div>
                 <div class="flex w-full">
                     <button type="submit" class="bg-blue-dark text-white px-4 py-2 rounded-md text-sm font-medium flex-end">Create Quote</button>

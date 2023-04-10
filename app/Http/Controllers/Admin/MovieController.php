@@ -63,6 +63,8 @@ class MovieController extends Controller
     {
         $movie = Movie::find($id);
 
+        $movie->quotes()->delete();
+
         $movie->delete();
 
         return redirect()->route('admin.dashboard')->with('success', 'Movie deleted successfully.');

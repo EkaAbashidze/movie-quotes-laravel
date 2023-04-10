@@ -64,7 +64,8 @@
                 </div>
                 <div>
                     <p class="text-lg font-bold mb-2">{{ $quote->quote_en }}</p>
-                    <p class="text-gray-700 mb-2">{{ $quote->movie->title }}</p>
+                    <p class="text-gray-700 mb-2">{{ $quote->movie ? $quote->movie->title : '' }}</p>
+
                     <div class="flex gap-x-[30px]">
                         <a href="#" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
 

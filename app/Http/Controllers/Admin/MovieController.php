@@ -24,8 +24,7 @@ class MovieController extends Controller
 
         
         $movie = Movie::create([
-            'title' => $request->input('title'),
-            'description' => '...',
+            'title' => $request->input('title')
         ]);
         
         $movie->save();
@@ -73,9 +72,6 @@ class MovieController extends Controller
         $movie = Movie::find($id);
 
         $movie->title = $request->input('title');
-        $movie->description = $request->input('description');
-
-
         $quote_en = $request->input('quote_en');
         $quote_ka = $request->input('quote_ka');
 

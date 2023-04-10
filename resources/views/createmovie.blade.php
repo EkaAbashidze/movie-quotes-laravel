@@ -38,10 +38,6 @@
                     <input id="title" name="title" type="text" class="w-full border border-gray-300 p-2 rounded-md" required>
                 </div>
                 <div class="mb-4">
-                    <label for="description" class="block text-gray-700 font-bold mb-2">Description (Optional):</label>
-                    <textarea id="description" name="description" class="w-full border border-gray-300 p-2 rounded-md" rows="4" ></textarea>
-                </div>
-                <div class="mb-4">
                     <label for="quotes" class="block text-gray-700 font-bold mb-2">Quote:</label>
                     <div id="quotes-container">
                         <textarea name="quotes[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required></textarea>

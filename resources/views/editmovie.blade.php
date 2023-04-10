@@ -39,11 +39,6 @@
                 <input id="title" name="title" type="text" class="w-full border border-gray-300 p-2 rounded-md" required value="{{ $movie->title }}">
             </div>
 
-            <div class="mb-4">
-                <label for="description" class="block text-gray-700 font-bold mb-2">Description (Optional):</label>
-                <textarea id="description" name="description" class="w-full border border-gray-300 p-2 rounded-md" rows="4">{{ $movie->description }}</textarea>
-            </div>
-
             @foreach ($movie->quotes as $quote)
             <div class="mb-4">
                 <label for="quote_en" class="block text-gray-700 font-bold mb-2">Quote (English):</label>

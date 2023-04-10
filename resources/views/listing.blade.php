@@ -24,7 +24,7 @@
 
         <div class="w-[748px] min-h-[533px] bg-white flex flex-col items-center overflow-hidden rounded-md mb-[67px]">
 
-        <img class="min-h-[500px] border border-black object-fit" src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ __('Movie Scene') }}">
+        <img class="min-h-[500px] border border-black object-fit" src="{{ asset('storage') }}/{{ str_replace('public/', '', $quote->thumbnail) }}" alt="{{ __('Movie Scene') }}">
 
           <h1 class="text-3xl font-bold text-gray-dark mt-[32px] px-[20px] pb-[20px]">{{ __($quote->quote_en) }}</h1>
 

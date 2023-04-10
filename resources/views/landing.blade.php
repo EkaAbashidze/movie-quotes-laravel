@@ -18,10 +18,16 @@
 
       <div class="mx-auto text-center flex flex-col content-center justify-evenly items-center">
 
-      <img class="max-w-[700px] rounded-md" src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ __('Movie Scene') }}">
+      @php
+        $randomQuote = $movie->quotes()->inRandomOrder()->first();
+        $thumbnail = str_replace('public/', '', $randomQuote->thumbnail);
+      @endphp
 
-      <h1 class="text-3xl font-bold text-white mt-16 mb-28 max-w-[800px]">{{ __($movie->quotes()->inRandomOrder()->first()->quote_en) }}</h1>
+      <img class="max-w-[700px] rounded-md" src="{{ asset('storage') }}/{{ $thumbnail }}" alt="{{ __('Movie Scene') }}">
+
       @if($movie)
+
+      <h1 class="text-3xl font-bold text-white mt-16 mb-28 max-w-[800px]">{{ __($randomQuote->quote_en) }}</h1>
         <a href="{{ route('movies.show', $movie->id) }}" class="text-3xl font-bold text-white underline font-roboto">{{ __($movie->title) }}</a>
       @endif
 

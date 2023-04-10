@@ -34,4 +34,14 @@ class QuoteController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
     }
+
+        
+    public function destroy($id)
+    {
+        $quote = Quote::find($id);
+
+        $quote->delete();
+
+        return redirect()->route('admin.dashboard')->with('success', 'Quote deleted successfully.');
+    }
 }

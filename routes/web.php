@@ -37,6 +37,8 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');
 
+    Route::delete('/quotes/{id}', [QuoteController::class, 'destroy'])->name('quotes.destroy');
+    
     Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.create');
 
     Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');

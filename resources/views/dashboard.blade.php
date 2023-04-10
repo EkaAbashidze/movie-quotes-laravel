@@ -67,7 +67,13 @@
                     <p class="text-gray-700 mb-2">{{ $quote->movie->title }}</p>
                     <div class="flex gap-x-[30px]">
                         <a href="#" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
-                        <a href="#" class="text-red-500 hover:underline">{{ __('Delete') }}</a>
+
+                        <form action="{{ route('quotes.destroy', $quote->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                        </form>
+
                     </div>
                 </div>
             </div>

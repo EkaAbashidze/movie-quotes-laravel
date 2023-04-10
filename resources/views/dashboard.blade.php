@@ -43,7 +43,13 @@
                     <h3 class="text-lg font-bold mb-2">{{ $movie->title }}</h3>
                     <div class="flex gap-x-[30px]">
                         <a href="{{ route('movies.edit', $movie->id) }}" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
-                        <a href="#" class="text-red-500 hover:underline">{{ __('Delete') }}</a>
+
+                        <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                        </form>
+
                     </div>
                 </div>
             </div>

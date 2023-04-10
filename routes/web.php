@@ -44,6 +44,9 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
     Route::get('movies/{id}/edit', [MovieController::class, 'edit'])->name('movies.edit');
 
     Route::put('movies/{id}', [MovieController::class, 'update'])->name('movies.update');
+
+    Route::delete('movies/{id}', [MovieController::class, 'destroy'])->name('movies.destroy');
+
 });
 
 

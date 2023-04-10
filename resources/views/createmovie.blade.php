@@ -37,16 +37,7 @@
                     <label for="title" class="block text-gray-700 font-bold mb-2">Title:</label>
                     <input id="title" name="title" type="text" class="w-full border border-gray-300 p-2 rounded-md" required>
                 </div>
-                <div class="mb-4">
-                    <label for="quotes" class="block text-gray-700 font-bold mb-2">Quote:</label>
-                    <div id="quotes-container">
-                        <textarea name="quotes[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required></textarea>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <label for="thumbnail" class="block text-gray-700 font-bold mb-2">Thumbnail:</label>
-                    <input type="file" id="thumbnail" name="thumbnail" class="w-full border border-gray-300 p-2 rounded-md" required>
-                </div>
+
                 <div class="flex w-full">
                     <button type="submit" class="bg-blue-dark text-white px-4 py-2 rounded-md text-sm font-medium flex justify-center items-center">
                     Create Movie

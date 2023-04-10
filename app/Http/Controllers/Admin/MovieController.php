@@ -38,22 +38,22 @@ class MovieController extends Controller
         //     $quote->save();
         // }
 
-        $quote_en = $request->input('quote_en');
-        $quote_ka = $request->input('quote_ka');
+        // $quote_en = $request->input('quote_en');
+        // $quote_ka = $request->input('quote_ka');
 
-        foreach ($quote_en as $quoteBody) {
-            $quote = new Quote();
-            $quote->quote_en = $quoteBody;
-            $quote->movie_id = $movie->id;
-            $quote->save();
-        }
+        // foreach ($quote_en as $quoteBody) {
+        //     $quote = new Quote();
+        //     $quote->quote_en = $quoteBody;
+        //     $quote->movie_id = $movie->id;
+        //     $quote->save();
+        // }
 
-        foreach ($quote_ka as $quoteBody) {
-            $quote = new Quote();
-            $quote->quote_ka = $quoteBody;
-            $quote->movie_id = $movie->id;
-            $quote->save();
-        }
+        // foreach ($quote_ka as $quoteBody) {
+        //     $quote = new Quote();
+        //     $quote->quote_ka = $quoteBody;
+        //     $quote->movie_id = $movie->id;
+        //     $quote->save();
+        // }
 
 
         return redirect()->route('admin.dashboard')->with('success', 'Movie created successfully.');

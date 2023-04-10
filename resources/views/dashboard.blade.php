@@ -35,7 +35,7 @@
     <div class="flex flex-col flex-1 bg-gray-100 p-8">
         <h2 class="text-2xl font-bold mb-8">Movies List</h2>
 
-          
+        
         @foreach($movies as $movie)
             <div class="bg-white rounded-lg p-4 shadow-lg flex">
                 <img src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ $movie->title }} thumbnail" class="h-16 w-16 rounded-md object-cover mr-4">
@@ -54,10 +54,10 @@
         @foreach($quotes as $quote)
             <div class="bg-white rounded-lg p-4 shadow-lg flex">
                 <div class="flex-shrink-0 mr-4">
-                    <img src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ $quote->text }}" class="w-16 h-16 rounded-md object-cover">
+                    <img src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ $quote->quote_en }}" class="w-16 h-16 rounded-md object-cover">
                 </div>
                 <div>
-                    <p class="text-lg font-bold mb-2">{{ $quote->text }}</p>
+                    <p class="text-lg font-bold mb-2">{{ $quote->quote_en }}</p>
                     <p class="text-gray-700 mb-2">{{ $quote->movie->title }}</p>
                     <div class="flex gap-x-[30px]">
                         <a href="#" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>

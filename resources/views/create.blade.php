@@ -50,7 +50,7 @@
 
                 <div class="mb-4">
                     <label for="movie" class="block text-gray-700 font-bold mb-2">Movie:</label>
-                    <select id="movie" name="movie" class="w-full border border-gray-300 p-2 rounded-md">
+                    <select id="movie" name="movie_id" class="w-full border border-gray-300 p-2 rounded-md">
                         <option value="">Select a movie</option>
                         @foreach($movies as $movie)
                             <option value="{{ $movie->id }}">{{ $movie->title }}</option>

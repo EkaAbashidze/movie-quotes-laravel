@@ -27,7 +27,7 @@ class QuoteController extends Controller
         $quote->quote_ka = $attributes['quote_ka'];
         $quote->movie_id = $attributes['movie_id'];
 
-        $quote->thumbnail =$request->file('thumbnail')->store('thumbnails');
+        $quote->thumbnail = $request->file('thumbnail')->store('public/thumbnails');
         $quote->save();
 
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');

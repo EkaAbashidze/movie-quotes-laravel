@@ -26,7 +26,7 @@
 
         <img class="min-h-[500px] border border-black object-fit" src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ __('Movie Scene') }}">
 
-          <h1 class="text-3xl font-bold text-gray-dark mt-[32px] px-[20px] pb-[20px]">{{ __($quote->text) }}</h1>
+          <h1 class="text-3xl font-bold text-gray-dark mt-[32px] px-[20px] pb-[20px]">{{ __($quote->quote_en) }}</h1>
 
         </div>
 

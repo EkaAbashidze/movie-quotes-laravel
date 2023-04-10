@@ -38,18 +38,23 @@
                 <label for="title" class="block text-gray-700 font-bold mb-2">Title:</label>
                 <input id="title" name="title" type="text" class="w-full border border-gray-300 p-2 rounded-md" required value="{{ $movie->title }}">
             </div>
+
             <div class="mb-4">
                 <label for="description" class="block text-gray-700 font-bold mb-2">Description (Optional):</label>
                 <textarea id="description" name="description" class="w-full border border-gray-300 p-2 rounded-md" rows="4">{{ $movie->description }}</textarea>
             </div>
+
+            @foreach ($movie->quotes as $quote)
             <div class="mb-4">
-                <label for="quotes" class="block text-gray-700 font-bold mb-2">Quote:</label>
-                <div id="quotes-container">
-                    @foreach ($movie->quotes as $quote)
-                        <textarea name="quotes[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ $quote->text }}</textarea>
-                    @endforeach
-                </div>
+                <label for="quote_en" class="block text-gray-700 font-bold mb-2">Quote (English):</label>
+                <textarea name="quote_en[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ $quote->quote_en }}</textarea>
             </div>
+            <div class="mb-4">
+                <label for="quote_ka" class="block text-gray-700 font-bold mb-2">Quote (Georgian):</label>
+                <textarea name="quote_ka[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ $quote->quote_ka }}</textarea>
+            </div>
+        @endforeach
+
             <div class="flex w-full">
                 <button type="submit" class="bg-blue-dark text-white px-4 py-2 rounded-md text-sm font-medium flex justify-center items-center">
                     Update Movie

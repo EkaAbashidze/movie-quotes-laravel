@@ -19,6 +19,7 @@ class QuoteController extends Controller
 
     public function store(StoreQuoteRequest $request)
     {
+
         $attributes = $request->validated();
 
         $quote = new Quote();
@@ -28,13 +29,9 @@ class QuoteController extends Controller
         ];
         $quote->movie_id = $attributes['movie_id'];
 
-        $quote->thumbnail = $attributes['thumbnail']->store('thumbnails');
+        $quote->thumbnail =$request->file('thumbnail')->store('thumbnails');
         $quote->save();
 
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
     }
-
-
 }
-
-// request()->file('thumbnail)->store('thumbnails'Z);

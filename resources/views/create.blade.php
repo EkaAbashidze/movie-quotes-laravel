@@ -37,10 +37,17 @@
 
             
                 @csrf
+
                 <div class="mb-4">
-                    <label for="quote" class="block text-gray-700 font-bold mb-2">Quote:</label>
-                    <textarea id="quote" name="quote" class="w-full border border-gray-300 p-2 rounded-md" rows="4"></textarea>
+                    <label for="quote_en" class="block text-gray-700 font-bold mb-2">Quote (English):</label>
+                    <textarea id="quote_en" name="quote_en" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required></textarea>
                 </div>
+
+                <div class="mb-4">
+                    <label for="quote_ka" class="block text-gray-700 font-bold mb-2">Quote (Georgian):</label>
+                    <textarea id="quote_ka" name="quote_ka" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required></textarea>
+                </div>
+
                 <div class="mb-4">
                     <label for="movie" class="block text-gray-700 font-bold mb-2">Movie:</label>
                     <select id="movie" name="movie" class="w-full border border-gray-300 p-2 rounded-md">

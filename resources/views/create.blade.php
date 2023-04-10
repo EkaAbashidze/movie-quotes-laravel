@@ -58,7 +58,7 @@
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label for="thumbnail" class="block text-gray-700 font-bold mb-2">Thumbnail:</label>
+                    <label for="thumbnail" class="block text-gray-700 font-bold mb-2"">Thumbnail:</label>
                     <input type="file" id="thumbnail" name="thumbnail" class="w-full border border-gray-300 p-2 rounded-md" required>
                 </div>
                 <div class="flex w-full">

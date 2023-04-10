@@ -23,10 +23,8 @@ class QuoteController extends Controller
         $attributes = $request->validated();
 
         $quote = new Quote();
-        $quote->text = [
-            'en' => $attributes['quote_en'],
-            'ka' => $attributes['quote_ka'],
-        ];
+        $quote->quote_en = $attributes['quote_en'];
+        $quote->quote_ka = $attributes['quote_ka'];
         $quote->movie_id = $attributes['movie_id'];
 
         $quote->thumbnail =$request->file('thumbnail')->store('thumbnails');

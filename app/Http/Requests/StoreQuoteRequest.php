@@ -15,7 +15,6 @@ class StoreQuoteRequest extends FormRequest
     public function rules(): array
     {
 
-
         return [
             'quote_en' => 'required|string',
             'quote_ka' => 'required|string',

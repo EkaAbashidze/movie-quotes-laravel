@@ -36,9 +36,19 @@
         <h2 class="text-2xl font-bold mb-8">Movies List</h2>
 
         
+
+
         @foreach($movies as $movie)
-            <div class="bg-white rounded-lg p-4 shadow-lg flex">
-                <img src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ $movie->title }} thumbnail" class="h-16 w-16 rounded-md object-cover mr-4">
+            <div class="bg-white rounded-lg p-4 shadow-lg flex mb-4 gap-x-[15px]">
+                
+            @php
+                $randomQuote = $movie->quotes()->inRandomOrder()->first();
+                $thumbnail = str_replace('public/', '', $randomQuote->thumbnail);
+            @endphp
+                
+            <img class="w-16 h-16 rounded-md object-cover" src="{{ asset('storage') }}/{{ $thumbnail }}" alt="{{ __('Movie Scene') }}">
+
+
                 <div>
                     <h3 class="text-lg font-bold mb-2">{{ $movie->title }}</h3>
                     <div class="flex gap-x-[30px]">
@@ -57,10 +67,17 @@
 
         <h2 class="text-2xl font-bold mb-8 mt-8">Quotes List</h2>
         <div class="grid grid-cols-1 gap-4">
+
         @foreach($quotes as $quote)
             <div class="bg-white rounded-lg p-4 shadow-lg flex">
                 <div class="flex-shrink-0 mr-4">
-                    <img src="{{ asset('storage/thumbnails/image.jpg') }}" alt="{{ $quote->quote_en }}" class="w-16 h-16 rounded-md object-cover">
+
+            @php
+                $quoteThumbnail = str_replace('public/', '', $quote->thumbnail);
+            @endphp
+
+                        <img src="{{ asset('storage') }}/{{ $quoteThumbnail }}" alt="{{ $quote->quote_en }} thumbnail" class="w-16 h-16 rounded-md object-cover">
+
                 </div>
                 <div>
                     <p class="text-lg font-bold mb-2">{{ $quote->quote_en }}</p>

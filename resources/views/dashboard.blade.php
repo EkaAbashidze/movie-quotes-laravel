@@ -76,7 +76,7 @@
                 $quoteThumbnail = str_replace('public/', '', $quote->thumbnail);
             @endphp
 
-                        <img src="{{ asset('storage') }}/{{ $quoteThumbnail }}" alt="{{ $quote->quote_en }} thumbnail" class="w-16 h-16 rounded-md object-cover">
+            <img src="{{ asset('storage') }}/{{ $quoteThumbnail }}" alt="{{ $quote->quote_en }} thumbnail" class="w-16 h-16 rounded-md object-cover">
 
                 </div>
                 <div>
@@ -84,7 +84,8 @@
                     <p class="text-gray-700 mb-2">{{ $quote->movie ? $quote->movie->title : '' }}</p>
 
                     <div class="flex gap-x-[30px]">
-                        <a href="#" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
+                        <a href="{{ route('quotes.edit', $quote->id) }}" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
+
 
                         <form action="{{ route('quotes.destroy', $quote->id) }}" method="POST">
                             @csrf

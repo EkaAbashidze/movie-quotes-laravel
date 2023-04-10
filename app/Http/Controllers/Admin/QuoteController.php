@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 
 use App\Http\Requests\StoreQuoteRequest;
+use App\Http\Requests\EditQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\Http\Request;
@@ -32,6 +33,34 @@ class QuoteController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
     }
+
+
+
+    public function edit($id)
+    {
+        $quote = Quote::find($id);
+        $movies = Movie::all();
+        return view('editquote', compact('quote', 'movies'));
+    }
+
+    public function update(EditQuoteRequest $request, $id)
+    {
+
+        $quote = Quote::find($id);
+
+        $quote->quote_en = $request->input('quote_en');
+        $quote->quote_ka = $request->input('quote_ka');
+        $quote->movie_id = $request->input('movie_id');
+
+        if ($request->hasFile('thumbnail')) {
+                $quote->thumbnail = $request->file('thumbnail')->store('public/thumbnails');
+            }
+            
+        $quote->save();
+
+        return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
+    }
+
 
         
     public function destroy($id)

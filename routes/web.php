@@ -37,6 +37,10 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');
 
+    Route::get('/quotes/{id}/edit', [QuoteController::class, 'edit'])->name('quotes.edit');
+
+    Route::put('/quotes/{id}', [QuoteController::class, 'update'])->name('quotes.update');
+
     Route::delete('/quotes/{id}', [QuoteController::class, 'destroy'])->name('quotes.destroy');
     
     Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.create');

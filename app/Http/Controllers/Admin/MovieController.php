@@ -58,6 +58,7 @@ class MovieController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
     }
+    
 
     public function destroy($id)
     {

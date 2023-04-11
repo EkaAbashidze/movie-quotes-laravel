@@ -34,11 +34,8 @@ class QuoteController extends Controller
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
     }
 
-
-
-    public function edit($id)
+    public function edit(Quote $quote)
     {
-        $quote = Quote::find($id);
         $movies = Movie::all();
         return view('editquote', compact('quote', 'movies'));
     }

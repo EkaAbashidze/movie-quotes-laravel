@@ -28,7 +28,7 @@ class QuoteController extends Controller
         $quote->quote_ka = $attributes['quote_ka'];
         $quote->movie_id = $attributes['movie_id'];
 
-        $quote->thumbnail = $request->file('thumbnail')->store('public/thumbnails');
+        $quote->thumbnail = $request->file('thumbnail')->store('thumbnails');
         $quote->save();
 
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
@@ -43,17 +43,17 @@ class QuoteController extends Controller
         return view('editquote', compact('quote', 'movies'));
     }
 
-    public function update(EditQuoteRequest $request, $id)
+    public function update(EditQuoteRequest $request, Quote $quote)
     {
 
-        $quote = Quote::find($id);
+        $attributes = $request->validated();
 
-        $quote->quote_en = $request->input('quote_en');
-        $quote->quote_ka = $request->input('quote_ka');
-        $quote->movie_id = $request->input('movie_id');
+        $quote->quote_en = $attributes['quote_en'];
+        $quote->quote_ka = $attributes['quote_ka'];
+        $quote->movie_id = $attributes['movie_id'];
 
         if ($request->hasFile('thumbnail')) {
-                $quote->thumbnail = $request->file('thumbnail')->store('public/thumbnails');
+                $quote->thumbnail = $request->file('thumbnail')->store('thumbnails');
             }
             
         $quote->save();

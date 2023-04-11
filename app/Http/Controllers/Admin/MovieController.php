@@ -23,36 +23,35 @@ class MovieController extends Controller
     {
 
         
-        $movie = Movie::create([
-            'title' => $request->input('title')
-        ]);
-        
+        $attributes = $request->validated();
+
+        $movie = new Movie;
+        $movie->title = $attributes['title'];
         $movie->save();
 
         return redirect()->route('admin.dashboard')->with('success', 'Movie created successfully.');
     }
 
 
-    public function edit($id)
+    public function edit(Movie $movie)
     {
-        $movie = Movie::find($id);
         return view('editmovie', compact('movie'));
     }
 
-    public function update(EditMovieRequest $request, $id)
+    public function update(EditMovieRequest $request, Movie $movie)
     {
 
-        $movie = Movie::find($id);
+        $attributes = $request->validated();
 
-        $movie->title = $request->input('title');
-        $quote_en = $request->input('quote_en');
-        $quote_ka = $request->input('quote_ka');
+        $movie->title = $attributes['title'];
+        $quote_en = $attributes['quote_en'];
+        $quote_ka = $attributes['quote_ka'];
 
-          foreach ($movie->quotes as $i => $quote) {
-              $quote->quote_en = $quote_en[$i];
-              $quote->quote_ka = $quote_ka[$i];
-              $quote->save();
-          }
+        foreach ($movie->quotes as $i => $quote) {
+            $quote->quote_en = $quote_en[$i];
+            $quote->quote_ka = $quote_ka[$i];
+            $quote->save();
+        }
 
         $movie->save();
 

@@ -10,6 +10,7 @@
 <body>
 
 <div class="flex flex-row h-screen w-full">
+  
         <div class="flex flex-col bg-blue-dark text-white w-64">
 
             <div class="p-8 text-3xl font-bold">{{ __('messages.admin_panel') }}</div>

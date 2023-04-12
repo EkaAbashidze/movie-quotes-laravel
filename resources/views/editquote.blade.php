@@ -32,7 +32,7 @@
         <div class="flex flex-col flex-1 bg-gray-100 p-8">
             <h2 class="text-2xl font-bold mb-8">Update Quote</h2>
 
-            <form method="POST" action="{{ route('quotes.update', $quote->id) }}" class="w-[1000px] bg-white rounded-lg p-8 shadow-lg" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('quotes.update') }}" class="w-[1000px] bg-white rounded-lg p-8 shadow-lg" enctype="multipart/form-data">
             
                 @csrf
                 @method('PUT')

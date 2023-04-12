@@ -20,4 +20,6 @@ return [
     'select_movie' => 'აირჩიე ფილმი',
     'thumbnail' => 'ფოტო',
     'movie_title' => 'ფილმის სათაური',
+    'edit_movie' => 'ფილმის დარედაქტირება',
+    'update' => 'განახლება',
 ];

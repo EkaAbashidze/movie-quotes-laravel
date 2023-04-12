@@ -20,5 +20,7 @@ return [
     'select_movie' => 'Select a movie',
     'thumbnail' => 'Thumbnail',
     'movie_title' => 'Movie Title',
+    'edit_movie' => 'Edit Movie',
+    'update' => 'Update',
     
 ];

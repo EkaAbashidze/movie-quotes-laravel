@@ -6,11 +6,14 @@ return [
     'create_quote' => 'Create Quote',
     'admin_panel' => "Admin Panel",
     'main_page' => 'Main Page',
+    'log_in' => 'Log In',
     'log_out' => 'Log Out',
+    'email' => 'Email',
+    'password' => 'Password',
     'movies_list' => 'Movies List',
     'delete' => 'Delete',
     'edit' => 'Edit',
     'quotes_list' => 'Quotes List',
-    
+
 
 ];

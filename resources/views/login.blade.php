@@ -13,12 +13,12 @@
 
   <div class="max-w-md w-full">
         <div class="bg-white p-8 rounded-lg shadow-lg">
-            <h1 class="text-3xl font-bold mb-4">Login</h1>
+            <h1 class="text-3xl font-bold mb-4">{{ __('messages.log_in') }}</h1>
             <form method="POST" action="{{ route('admin.authorized') }}">
                 @csrf
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="email">
-                        Email
+                        {{ __('messages.email') }}
                     </label>
                     <input class="border border-gray-400 p-2 w-full rounded-lg" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
                     @error('email')
@@ -27,7 +27,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="password">
-                        Password
+                        {{ __('messages.password') }}
                     </label>
                     <input class="border border-gray-400 p-2 w-full rounded-lg" id="password" type="password" name="password" required>
                     @error('password')
@@ -35,7 +35,7 @@
                     @enderror
                 </div>
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
-                    Login
+                    {{ __('messages.log_in') }}
                 </button>
             </form>
         </div>

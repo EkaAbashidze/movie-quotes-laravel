@@ -19,4 +19,5 @@ return [
     'movie' => 'ფილმი:',
     'select_movie' => 'აირჩიე ფილმი',
     'thumbnail' => 'ფოტო',
+    'movie_title' => 'ფილმის სათაური',
 ];

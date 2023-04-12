@@ -19,6 +19,6 @@ return [
     'movie' => 'Movie:',
     'select_movie' => 'Select a movie',
     'thumbnail' => 'Thumbnail',
+    'movie_title' => 'Movie Title',
     
-
 ];

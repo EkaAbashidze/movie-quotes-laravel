@@ -22,5 +22,6 @@ return [
     'movie_title' => 'Movie Title',
     'edit_movie' => 'Edit Movie',
     'update' => 'Update',
+    'edit_quote' => 'Edit Quote',
     
 ];

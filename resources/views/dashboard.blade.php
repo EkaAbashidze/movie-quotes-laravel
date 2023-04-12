@@ -15,8 +15,8 @@
         <div class="p-8 text-3xl font-bold">Admin Panel</div>
         <ul class="flex flex-col p-8">
           <li class="py-2 hover:underline"><a href="#">Main Page</a></li>
-          <li class="py-2 hover:underline"><a href="{{ route('movies.create') }}">Create Movie</a></li>
-          <li class="py-2 hover:underline"><a href="{{ route('quotes.create') }}">Create Quote</a></li>
+        <li class="py-2 hover:underline"><a href="{{ route('movies.create') }}">{{ __('messages.create_movie') }}</a></li>
+        <li class="py-2 hover:underline"><a href="{{ route('quotes.create') }}">{{ __('messages.create_quote') }}</a></li>
           <li class="py-2 hover:underline">
 
           <form method="POST" action="{{ route('logout') }}">

@@ -42,32 +42,37 @@ class QuoteController extends Controller
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
     }
 
-    public function edit(Quote $quote)
-    {
-        $movies = Movie::all();
-        return view('editquote', compact('quote', 'movies'));
+public function edit(Quote $quote)
+{
+    $movies = Movie::all();
+    $enTranslations = $quote->getTranslations('quote_en');
+    $kaTranslations = $quote->getTranslations('quote_ka');
+
+    return view('editquote', compact('quote', 'movies', 'enTranslations', 'kaTranslations'));
+}
+
+public function update(EditQuoteRequest $request, Quote $quote)
+{
+
+    $attributes = $request->validated();
+
+    $quote->quote_en = $attributes['quote_en'];
+    $quote->quote_ka = $attributes['quote_ka'];
+    $quote->movie_id = $attributes['movie_id'];
+
+    if ($request->hasFile('thumbnail')) {
+        $path = $request->file('thumbnail')->store('public/thumbnails');
+        $thumbnail = str_replace('public/', '', $path);
+        $quote->thumbnail = $thumbnail;
     }
+    
+    $quote->save();
 
-    public function update(EditQuoteRequest $request, Quote $quote)
-    {
+    $enTranslations = $quote->getTranslations('quote_en');
+    $kaTranslations = $quote->getTranslations('quote_ka');
 
-        $attributes = $request->validated();
-
-        $quote->quote_en = $attributes['quote_en'];
-        $quote->quote_ka = $attributes['quote_ka'];
-        $quote->movie_id = $attributes['movie_id'];
-
-        if ($request->hasFile('thumbnail')) {
-                $path = $request->file('thumbnail')->store('public/thumbnails');
-                $thumbnail = str_replace('public/', '', $path);
-                $quote->thumbnail = $thumbnail;
-            }
-            
-        $quote->save();
-
-        return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
-    }
-
+    return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
+}
 
         
     public function destroy($id)

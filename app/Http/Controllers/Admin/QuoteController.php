@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 
 use App\Http\Requests\StoreQuoteRequest;
-use App\Http\Requests\EditQuoteRequest;
+use App\Http\Requests\UpdateQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\Http\Request;
@@ -24,8 +24,7 @@ class QuoteController extends Controller
         $attributes = $request->validated();
 
         $quote = new Quote();
-        $quote->quote_en = $attributes['quote_en'];
-        $quote->quote_ka = $attributes['quote_ka'];
+        $quote->quote = $attributes['quote'];
         $quote->movie_id = $attributes['movie_id'];
 
 
@@ -45,19 +44,17 @@ class QuoteController extends Controller
 public function edit(Quote $quote)
 {
     $movies = Movie::all();
-    $enTranslations = $quote->getTranslations('quote_en');
-    $kaTranslations = $quote->getTranslations('quote_ka');
+    $enTranslations = $quote->getTranslations('quote');
 
-    return view('editquote', compact('quote', 'movies', 'enTranslations', 'kaTranslations'));
+    return view('editquote', compact('quote', 'movies', 'enTranslations'));
 }
 
-public function update(EditQuoteRequest $request, Quote $quote)
+public function update(UpdateQuoteRequest $request, Quote $quote)
 {
 
     $attributes = $request->validated();
 
-    $quote->quote_en = $attributes['quote_en'];
-    $quote->quote_ka = $attributes['quote_ka'];
+    $quote->quote = $attributes['quote'];
     $quote->movie_id = $attributes['movie_id'];
 
     if ($request->hasFile('thumbnail')) {
@@ -68,8 +65,7 @@ public function update(EditQuoteRequest $request, Quote $quote)
     
     $quote->save();
 
-    $enTranslations = $quote->getTranslations('quote_en');
-    $kaTranslations = $quote->getTranslations('quote_ka');
+    $enTranslations = $quote->getTranslations('quote');
 
     return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
 }

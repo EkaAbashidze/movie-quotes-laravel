@@ -4,8 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EditMovieRequest extends FormRequest
+class EditQuoteRequest extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     */
 
     /**
      * Get the validation rules that apply to the request.
@@ -15,9 +18,9 @@ class EditMovieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'quote_en.*' => 'required|string|max:255',
-            'quote_ka.*' => 'required|string|max:255',
+            'quote' => 'required|string',
+            'movie_id' => 'required|exists:movies,id',
+            'thumbnail' => 'nullable',
         ];
     }
 }

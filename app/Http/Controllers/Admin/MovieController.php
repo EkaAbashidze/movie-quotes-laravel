@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\EditMovieRequest;
+use App\Http\Requests\UpdateMovieRequest;
 use App\Http\Requests\StoreMovieRequest;
 use App\Models\Movie;
 use App\Models\Quote;
@@ -38,18 +38,16 @@ class MovieController extends Controller
         return view('editmovie', compact('movie'));
     }
 
-    public function update(EditMovieRequest $request, Movie $movie)
+    public function update(UpdateMovieRequest $request, Movie $movie)
     {
 
         $attributes = $request->validated();
 
         $movie->title = $attributes['title'];
-        $quote_en = $attributes['quote_en'];
-        $quote_ka = $attributes['quote_ka'];
+        $quotes = $attributes['quote'];
 
         foreach ($movie->quotes as $i => $quote) {
-            $quote->quote_en = $quote_en[$i];
-            $quote->quote_ka = $quote_ka[$i];
+            $quote->quote = $quotes[$i];
             $quote->save();
         }
 

@@ -11,7 +11,7 @@ class Quote extends Model
 {
     use HasFactory, HasTranslations;
 
-    public $translatable = ['quote_en', 'quote_ka'];
+    public $translatable = ['quote'];
 
     public function movie() {
         return $this->belongsTo(Movie::class);

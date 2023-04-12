@@ -41,15 +41,15 @@
                 @method('PUT')
 
                 <div class="mb-4">
-                    <label for="quote_en" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_en') }}</label>
-                    <textarea id="quote_en" name="quote_en" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>
-                      {{ __($quote->quote_en) }}</textarea>
+                    <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote') }}</label>
+                    <textarea id="quote" name="quote_en[]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>
+                      {{ __($quote->quote) }}</textarea>
                 </div>
 
                 <div class="mb-4">
-                    <label for="quote_ka" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_ka') }}</label>
-                    <textarea id="quote_ka" name="quote_ka" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>
-                      {{ __($quote->quote_ka) }}</textarea>
+                    <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote') }}</label>
+                    <textarea id="quote" name="quote_ka[]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>
+                      {{ __($quote->quote) }}</textarea>
                 </div>
 
                 <div class="mb-4">

@@ -44,12 +44,12 @@
 
             @foreach ($movie->quotes as $quote)
             <div class="mb-4">
-                <label for="quote_en" class="block text-gray-700 font-bold mb-2">Quote (English):</label>
-                <textarea name="quote_en[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ __($quote->quote_en) }}</textarea>
+                <label for="quote" class="block text-gray-700 font-bold mb-2">Quote (English):</label>
+                <textarea name="quote_en[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ __($quote->quote) }}</textarea>
             </div>
             <div class="mb-4">
-                <label for="quote_ka" class="block text-gray-700 font-bold mb-2">Quote (Georgian):</label>
-                <textarea name="quote_ka[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ __($quote->quote_ka) }}</textarea>
+                <label for="quote" class="block text-gray-700 font-bold mb-2">Quote (Georgian):</label>
+                <textarea name="quote_ka[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ __($quote->quote) }}</textarea>
             </div>
         @endforeach
 

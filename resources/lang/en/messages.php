@@ -14,6 +14,11 @@ return [
     'delete' => 'Delete',
     'edit' => 'Edit',
     'quotes_list' => 'Quotes List',
-
+    'quote_en' => 'Quote (English):',
+    'quote_ka' => 'Quote (Georgian):',
+    'movie' => 'Movie:',
+    'select_movie' => 'Select a movie',
+    'thumbnail' => 'Thumbnail',
+    
 
 ];

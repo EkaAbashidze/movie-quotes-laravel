@@ -64,7 +64,7 @@
 
 
                 <div>
-                    <h3 class="text-lg font-bold mb-2">{{ $movie->title }}</h3>
+                    <h3 class="text-lg font-bold mb-2">{{ __($movie->title) }}</h3>
                     <div class="flex gap-x-[30px]">
                         <a href="{{ route('movies.edit', $movie->id) }}" class="text-blue-500 hover:underline">{{ __('messages.edit') }}</a>
 
@@ -94,8 +94,8 @@
 
                 </div>
                 <div>
-                    <p class="text-lg font-bold mb-2">{{ $quote->quote_en }}</p>
-                    <p class="text-gray-700 mb-2">{{ $quote->movie ? $quote->movie->title : '' }}</p>
+                    <p class="text-lg font-bold mb-2">{{ __($quote->quote_en) }}</p>
+                    <p class="text-gray-700 mb-2">{{ $quote->movie ? __($quote->movie->title) : '' }}</p>
 
                     <div class="flex gap-x-[30px]">
                         <a href="{{ route('quotes.edit', $quote->id) }}" class="text-blue-500 hover:underline">{{ __('messages.edit') }}</a>

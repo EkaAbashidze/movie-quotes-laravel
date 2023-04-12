@@ -38,7 +38,7 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');
 
-    Route::get('/quotes/edit', [QuoteController::class, 'edit'])->name('quotes.edit');
+    Route::get('/quotes/{quote}/edit', [QuoteController::class, 'edit'])->name('quotes.edit');
 
     Route::put('/quotes/', [QuoteController::class, 'update'])->name('quotes.update');
 
@@ -48,11 +48,11 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
 
-    Route::get('movies/edit', [MovieController::class, 'edit'])->name('movies.edit');
+    Route::get('/movies/{movie}/edit', [MovieController::class, 'edit'])->name('movies.edit');
 
-    Route::put('movies', [MovieController::class, 'update'])->name('movies.update');
+    Route::put('/movies/}', [MovieController::class, 'update'])->name('movies.update');
 
-    Route::delete('movies/{id}', [MovieController::class, 'destroy'])->name('movies.destroy');
+    Route::delete('/movies/{id}', [MovieController::class, 'destroy'])->name('movies.destroy');
 
 });
 

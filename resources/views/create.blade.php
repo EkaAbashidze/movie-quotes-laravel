@@ -38,7 +38,6 @@
 
             <form method="POST" action="{{ route('quotes.store') }}" class="w-[1000px] bg-white rounded-lg p-8 shadow-lg" enctype="multipart/form-data">
 
-            
                 @csrf
 
                 <div class="mb-4">

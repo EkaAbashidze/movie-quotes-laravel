@@ -10,7 +10,7 @@
 <body>
 
 <div class="flex flex-row h-screen w-full">
-  
+
         <div class="flex flex-col bg-blue-dark text-white w-64">
 
             <div class="p-8 text-3xl font-bold">{{ __('messages.admin_panel') }}</div>
@@ -43,7 +43,7 @@
 
                 <div class="flex w-full">
                     <button type="submit" class="bg-blue-dark text-white px-4 py-2 rounded-md text-sm font-medium flex justify-center items-center">
-                    {{ __('messages.create_quote') }}
+                    {{ __('messages.create_movie') }}
                 </button>
             </div>
         </form>

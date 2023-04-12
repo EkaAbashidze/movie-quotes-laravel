@@ -12,28 +12,39 @@
 
 <div class="flex flex-row min-h-screen w-full">
     <div class="flex flex-col bg-blue-dark text-white w-64">
-        <div class="p-8 text-3xl font-bold">Admin Panel</div>
+        <div class="p-8 text-3xl font-bold">{{ __('messages.admin_panel') }}</div>
         <ul class="flex flex-col p-8">
-          <li class="py-2 hover:underline"><a href="#">Main Page</a></li>
+          <li class="py-2 hover:underline"><a href="#">{{ __('messages.main_page') }}</a></li>
         <li class="py-2 hover:underline"><a href="{{ route('movies.create') }}">{{ __('messages.create_movie') }}</a></li>
         <li class="py-2 hover:underline"><a href="{{ route('quotes.create') }}">{{ __('messages.create_quote') }}</a></li>
           <li class="py-2 hover:underline">
 
           <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit">Log Out</button>
+            <button type="submit">{{ __('messages.log_out') }}</button>
           </form>
 
 
           </li>
         </ul>
-        <div class="flex flex-row justify-start items-center p-8">
-            <div class="border border-white w-10 h-10 rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">En</div>
-            <div class="border border-white w-10 h-10 rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer ml-4">Ka</div>
-        </div>
+        
+      <div class="flex flex-row justify-start items-center p-8">
+          <form action="{{ route('language') }}" method="POST">
+              @csrf
+              <input type="hidden" name="locale" value="en">
+              <button type="submit" class="border border-white w-10 h-10 rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">En</button>
+          </form>
+          <form action="{{ route('language') }}" method="POST">
+              @csrf
+              <input type="hidden" name="locale" value="ka">
+              <button type="submit" class="border border-white w-10 h-10 rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer ml-4">Ka</button>
+          </form>
+      </div>
+
+
     </div>
     <div class="flex flex-col flex-1 bg-gray-100 p-8">
-        <h2 class="text-2xl font-bold mb-8">Movies List</h2>
+        <h2 class="text-2xl font-bold mb-8">{{ __('messages.movies_list') }}</h2>
 
         
 
@@ -52,12 +63,12 @@
                 <div>
                     <h3 class="text-lg font-bold mb-2">{{ $movie->title }}</h3>
                     <div class="flex gap-x-[30px]">
-                        <a href="{{ route('movies.edit', $movie->id) }}" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
+                        <a href="{{ route('movies.edit', $movie->id) }}" class="text-blue-500 hover:underline">{{ __('messages.edit') }}</a>
 
                         <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                            <button type="submit" class="text-red-500 hover:underline">{{ __('messages.delete') }}</button>
                         </form>
 
                     </div>
@@ -65,7 +76,7 @@
             </div>
         @endforeach
 
-        <h2 class="text-2xl font-bold mb-8 mt-8">Quotes List</h2>
+        <h2 class="text-2xl font-bold mb-8 mt-8">{{ __('messages.quotes_list') }}</h2>
         <div class="grid grid-cols-1 gap-4">
 
         @foreach($quotes as $quote)
@@ -84,13 +95,13 @@
                     <p class="text-gray-700 mb-2">{{ $quote->movie ? $quote->movie->title : '' }}</p>
 
                     <div class="flex gap-x-[30px]">
-                        <a href="{{ route('quotes.edit', $quote->id) }}" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
+                        <a href="{{ route('quotes.edit', $quote->id) }}" class="text-blue-500 hover:underline">{{ __('messages.edit') }}</a>
 
 
                         <form action="{{ route('quotes.destroy', $quote->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                            <button type="submit" class="text-red-500 hover:underline">{{ __('messages.delete') }}</button>
                         </form>
 
                     </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,4 +56,4 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
 });
 
-
+Route::post('/language', [LanguageController::class, 'changeLanguage'])->name('language');

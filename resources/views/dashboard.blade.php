@@ -43,7 +43,7 @@
                 
             @php
                 $randomQuote = $movie->quotes()->inRandomOrder()->first();
-                $thumbnail = str_replace('public/', '', $randomQuote->thumbnail);
+                $thumbnail = $randomQuote->thumbnail;
             @endphp
                 
             <img class="w-16 h-16 rounded-md object-cover" src="{{ asset('storage') }}/{{ $thumbnail }}" alt="{{ __('Movie Scene') }}">
@@ -73,7 +73,7 @@
                 <div class="flex-shrink-0 mr-4">
 
             @php
-                $quoteThumbnail = str_replace('public/', '', $quote->thumbnail);
+                $quoteThumbnail = $quote->thumbnail;
             @endphp
 
             <img src="{{ asset('storage') }}/{{ $quoteThumbnail }}" alt="{{ $quote->quote_en }} thumbnail" class="w-16 h-16 rounded-md object-cover">

@@ -20,7 +20,7 @@
 
       @php
         $randomQuote = $movie->quotes()->inRandomOrder()->first();
-        $thumbnail = str_replace('public/', '', $randomQuote->thumbnail);
+        $thumbnail = $randomQuote->thumbnail;
       @endphp
 
       <img class="max-w-[700px] rounded-md" src="{{ asset('storage') }}/{{ $thumbnail }}" alt="{{ __('Movie Scene') }}">

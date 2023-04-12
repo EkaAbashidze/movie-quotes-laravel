@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreQuoteRequest extends FormRequest
+class EditMovieRequest extends FormRequest
 {
 
     /**
@@ -14,12 +14,10 @@ class StoreQuoteRequest extends FormRequest
      */
     public function rules(): array
     {
-
         return [
-            'quote_en' => 'required|string',
-            'quote_ka' => 'required|string',
-            'movie_id' => 'required|exists:movies,id',
-            'thumbnail' => 'required',
+            'title' => 'required|string|max:255',
+            'quote_en.*' => 'required|string|max:255',
+            'quote_ka.*' => 'required|string|max:255',
         ];
     }
 }

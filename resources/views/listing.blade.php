@@ -22,11 +22,11 @@
 
       <div class="mx-auto flex flex-col content-center justify-evenly">
 
-        <div class="w-[748px] h-[533px] bg-white flex flex-col items-center overflow-hidden rounded-md mb-[67px]">
+        <div class="w-[748px] min-h-[533px] bg-white flex flex-col items-center overflow-hidden rounded-md mb-[67px]">
 
-        <img class="min-w-[100%] border border-black" src="{{ asset('storage/thumbnails/image.png') }}" alt="{{ __('Movie Scene') }}">
+        <img class="min-w-[800px]  border border-black object-fit" src="{{ asset('storage') }}/{{ str_replace('public/', '', $quote->thumbnail) }}" alt="{{ __('Movie Scene') }}">
 
-          <h1 class="text-3xl font-bold text-gray-dark mt-[32px] px-[20px]">{{ __($quote->text) }}</h1>
+          <h1 class="text-3xl font-bold text-gray-dark mt-[32px] px-[20px] pb-[20px]">{{ __($quote->quote_en) }}</h1>
 
         </div>
 

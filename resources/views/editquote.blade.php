@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
-  <title>Create Quote</title>
+  <title>Update Quote</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
 </head>
 <body>
@@ -30,22 +30,21 @@
         </div>
 
         <div class="flex flex-col flex-1 bg-gray-100 p-8">
-            <h2 class="text-2xl font-bold mb-8">Create Quote</h2>
+            <h2 class="text-2xl font-bold mb-8">Update Quote</h2>
 
-
-            <form method="POST" action="{{ route('quotes.store') }}" class="w-[1000px] bg-white rounded-lg p-8 shadow-lg" enctype="multipart/form-data">
-
+            <form method="POST" action="{{ route('quotes.update', $quote->id) }}" class="w-[1000px] bg-white rounded-lg p-8 shadow-lg" enctype="multipart/form-data">
             
                 @csrf
+                @method('PUT')
 
                 <div class="mb-4">
                     <label for="quote_en" class="block text-gray-700 font-bold mb-2">Quote (English):</label>
-                    <textarea id="quote_en" name="quote_en" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required></textarea>
+                    <textarea id="quote_en" name="quote_en" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>{{ $quote->quote_en }}</textarea>
                 </div>
 
                 <div class="mb-4">
                     <label for="quote_ka" class="block text-gray-700 font-bold mb-2">Quote (Georgian):</label>
-                    <textarea id="quote_ka" name="quote_ka" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required></textarea>
+                    <textarea id="quote_ka" name="quote_ka" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>{{ $quote->quote_ka }}</textarea>
                 </div>
 
                 <div class="mb-4">
@@ -53,20 +52,21 @@
                     <select id="movie" name="movie_id" class="w-full border border-gray-300 p-2 rounded-md">
                         <option value="">Select a movie</option>
                         @foreach($movies as $movie)
-                            <option value="{{ $movie->id }}">{{ $movie->title }}</option>
+                            <option value="{{ $movie->id }}" @if($quote->movie_id == $movie->id) selected @endif>{{ $movie->title }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="mb-4">
                     <label for="thumbnail" class="block text-gray-700 font-bold mb-2"">Thumbnail:</label>
-                    <input type="file" id="thumbnail" name="thumbnail" class="w-full border border-gray-300 p-2 rounded-md" required>
+                    <input type="file" id="thumbnail" name="thumbnail" class="w-full border border-gray-300 p-2 rounded-md">
                 </div>
-                <div class="flex w-full">
-                    <button type="submit" class="bg-blue-dark text-white px-4 py-2 rounded-md text-sm font-medium flex-end">Create Quote</button>
-                </div>
-            </form>
-        </div>
+
+            <div class="flex justify-end">
+                <button type="submit" class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700">Update Quote</button>
+            </div>
+
+        </form>
+
     </div>
 
-</body>
-</html>
+</div>

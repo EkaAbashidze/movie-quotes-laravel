@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\Admin\QuoteController;
+use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,5 +37,22 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');
 
+    Route::get('/quotes/{id}/edit', [QuoteController::class, 'edit'])->name('quotes.edit');
+
+    Route::put('/quotes/{id}', [QuoteController::class, 'update'])->name('quotes.update');
+
+    Route::delete('/quotes/{id}', [QuoteController::class, 'destroy'])->name('quotes.destroy');
+    
+    Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.create');
+
+    Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
+
+    Route::get('movies/{id}/edit', [MovieController::class, 'edit'])->name('movies.edit');
+
+    Route::put('movies/{id}', [MovieController::class, 'update'])->name('movies.update');
+
+    Route::delete('movies/{id}', [MovieController::class, 'destroy'])->name('movies.destroy');
+
 });
+
 

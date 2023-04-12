@@ -4,8 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreQuoteRequest extends FormRequest
+class EditQuoteRequest extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     */
 
     /**
      * Get the validation rules that apply to the request.
@@ -14,12 +17,11 @@ class StoreQuoteRequest extends FormRequest
      */
     public function rules(): array
     {
-
         return [
             'quote_en' => 'required|string',
             'quote_ka' => 'required|string',
             'movie_id' => 'required|exists:movies,id',
-            'thumbnail' => 'required',
+            'thumbnail' => 'nullable',
         ];
     }
 }

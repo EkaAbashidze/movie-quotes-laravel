@@ -13,6 +13,12 @@ class Quote extends Model
 
     public $translatable = ['quote'];
 
+    protected $fillable = [
+        'quote',
+        'movie_id',
+        'thumbnail',
+    ];
+
     public function movie() {
         return $this->belongsTo(Movie::class);
     }

@@ -23,20 +23,21 @@ class QuoteController extends Controller
 
         $attributes = $request->validated();
 
-        $quote = new Quote();
-        $quote->quote = $attributes['quote'];
-        $quote->movie_id = $attributes['movie_id'];
+        $quote = [
+          'en' => $attributes['quote']['en'],
+          'ka' => $attributes['quote']['ka'],
+        ];
 
+        $quoteModel = new Quote();
+        $quoteModel->quote = $quote;
+        $quoteModel->movie_id = $attributes['movie_id'];
 
 
         $path = $request->file('thumbnail')->store('public/thumbnails');
         $thumbnail = str_replace('public/', '', $path);
-        $quote->thumbnail = $thumbnail;
+        $quoteModel->thumbnail = $thumbnail;
 
-
-
-
-        $quote->save();
+        $quoteModel->save();
 
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
     }

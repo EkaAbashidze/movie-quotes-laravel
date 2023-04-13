@@ -40,15 +40,15 @@
 
                 @csrf
 
-                <div class="mb-4">
-                    <label for="quote_en" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_en') }}</label>
-                    <textarea id="quote_en" name="quote_en" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required></textarea>
-                </div>
+            <div class="mb-4">
+                <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_en') }}</label>
+                <textarea id="quote" name="quote[en]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required></textarea>
+            </div>
 
-                <div class="mb-4">
-                    <label for="quote_ka" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_ka') }}</label>
-                    <textarea id="quote_ka" name="quote_ka" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required></textarea>
-                </div>
+            <div class="mb-4">
+                <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_ka') }}</label>
+                <textarea id="quote" name="quote[ka]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required></textarea>
+            </div>
 
                 <div class="mb-4">
                     <label for="movie" class="block text-gray-700 font-bold mb-2">{{ __('messages.movie') }}</label>

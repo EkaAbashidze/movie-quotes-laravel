@@ -52,24 +52,24 @@ public function edit(Quote $quote)
 
 public function update(UpdateQuoteRequest $request, Quote $quote)
 {
+    $validated = $request->validated();
 
-    $attributes = $request->validated();
+    $quote->setTranslation('quote', 'en', $validated['quote']['en']);
+    $quote->setTranslation('quote', 'ka', $validated['quote']['ka']);
 
-    $quote->quote = $attributes['quote'];
-    $quote->movie_id = $attributes['movie_id'];
+    $quote->movie_id = $validated['movie_id'];
 
     if ($request->hasFile('thumbnail')) {
         $path = $request->file('thumbnail')->store('public/thumbnails');
         $thumbnail = str_replace('public/', '', $path);
         $quote->thumbnail = $thumbnail;
     }
-    
+
     $quote->save();
 
-    $enTranslations = $quote->getTranslations('quote');
-
-    return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
+    return redirect()->route('admin.dashboard')->with('success', 'Quote updated successfully.');
 }
+
 
         
     public function destroy($id)

@@ -43,15 +43,17 @@
             </div>
 
             @foreach ($movie->quotes as $quote)
-            <div class="mb-4">
-                <label for="quote" class="block text-gray-700 font-bold mb-2">Quote (English):</label>
-                <textarea name="quote_en[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ __($quote->quote) }}</textarea>
-            </div>
-            <div class="mb-4">
-                <label for="quote" class="block text-gray-700 font-bold mb-2">Quote (Georgian):</label>
-                <textarea name="quote_ka[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ __($quote->quote) }}</textarea>
-            </div>
-        @endforeach
+
+              <div class="mb-4">
+                  <label for="quote" class="block text-gray-700 font-bold mb-2">Quote (English):</label>
+                  <textarea name="quote_en[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ __($quote->quote) }}</textarea>
+              </div>
+              <div class="mb-4">
+                  <label for="quote" class="block text-gray-700 font-bold mb-2">Quote (Georgian):</label>
+                  <textarea name="quote_ka[]" class="w-full border border-gray-300 p-2 rounded-md" rows="2" required>{{ __($quote->quote) }}</textarea>
+              </div>
+              
+            @endforeach
 
             <div class="flex w-full">
                 <button type="submit" class="bg-blue-dark text-white px-4 py-2 rounded-md text-sm font-medium flex justify-center items-center">

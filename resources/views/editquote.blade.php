@@ -40,17 +40,16 @@
                 @csrf
                 @method('PUT')
 
-                <div class="mb-4">
-                    <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote') }}</label>
-                    <textarea id="quote" name="quote_en[]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>
-                      {{ __($quote->quote) }}</textarea>
-                </div>
 
-                <div class="mb-4">
-                    <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote') }}</label>
-                    <textarea id="quote" name="quote_ka[]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>
-                      {{ __($quote->quote) }}</textarea>
-                </div>
+            <div class="mb-4">
+                <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_en') }}</label>
+                <textarea id="quote" name="quote[en]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>{{ __($quote->quote) }}</textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_ka') }}</label>
+                <textarea id="quote" name="quote[ka]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>{{ __($quote->quote) }}</textarea>
+            </div>
 
                 <div class="mb-4">
                     <label for="movie" class="block text-gray-700 font-bold mb-2">{{ __('messages.movie') }}</label>

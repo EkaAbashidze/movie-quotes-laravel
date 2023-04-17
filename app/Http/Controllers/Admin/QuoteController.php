@@ -52,8 +52,9 @@ public function edit(Quote $quote)
 
   public function update(UpdateQuoteRequest $request, Quote $quote)
   {
-      $attributes = $request->validated();
 
+    $attributes = $request->validated();
+    
       $quote->replaceTranslations('quote', [
         'en' => $attributes['quote']['en'],
         'ka' => $attributes['quote']['ka'],

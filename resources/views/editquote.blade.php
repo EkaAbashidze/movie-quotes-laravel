@@ -43,11 +43,11 @@
 
             <div class="mb-4">
                 <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_en') }}</label>
-                <textarea id="quote" name="quote[en]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>{{ __($quote->quote) }}</textarea>
+                <textarea id="quote-en" name="quote[en]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>{{ __($quote->quote) }}</textarea>
             </div>
 
             <div class="mb-4">
-                <label for="quote" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_ka') }}</label>
+                <label for="quote-ka" class="block text-gray-700 font-bold mb-2">{{ __('messages.quote_ka') }}</label>
                 <textarea id="quote" name="quote[ka]" class="w-full border border-gray-300 p-2 rounded-md" rows="4" required>{{ __($quote->quote) }}</textarea>
             </div>
 

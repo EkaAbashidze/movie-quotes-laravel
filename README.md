@@ -15,16 +15,16 @@ The Movie Quotes App is a web application built with the Laravel framework and u
 
 ## Features
 
-- **[Models]**
-- **[Migrations]**
-- **[Requests]**
-- **[Controllers]**
-- **[Factories]**
-- **[Seeder]**
-- **[Lang resource of Laravel]**
-- **[Blade components]**
-- **[CRUD]**
-- **[Authorization and dashboard for admin users]**
+- **Models**
+- **Migrations**
+- **Requests**
+- **Controllers**
+- **Factories**
+- **Seeder**
+- **Lang resource of Laravel**
+- **Blade components**
+- **CRUD**
+- **Authorization and dashboard for admin users**
 
 The app utilizes models to define the structure of the data and the relationships between the different tables. Migrations are used to create and modify the database schema, while requests are used to validate incoming data.
 
@@ -33,3 +33,11 @@ Controllers handle user requests and interact with the models to retrieve and ma
 The app also utilizes Laravel's language resources for localization and Spatie Translatable for translating the quotes into different languages.
 
 The back-end includes CRUD functionality for managing movies and their associated quotes. The app also includes authorization and a dashboard for admin user, who has  the ability to add, modify, edit, and delete movies.
+
+## Database
+
+- **[DrawSQL](https://drawsql.app/)**
+
+In the application, established relationship between the movie and quote models is that where each quote is attached to only one movie using the belongsTo relationship and the movie_id foreign key, each movie can have multiple quotes as defined by the hasMany relationship. This ensures that  consistent and organized database structure for the movies and quotes data is maintained. Utilizing DrawSQL a clear and concise visual representation of this relationship is created, making it easier  to understand and work with the data.
+
+![relationship](https://user-images.githubusercontent.com/109977347/232478489-eed5743c-c590-4c80-a301-4027ec40d7f8.jpg)

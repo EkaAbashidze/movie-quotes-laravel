@@ -17,5 +17,4 @@ class LanguageController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
     }
-
 }

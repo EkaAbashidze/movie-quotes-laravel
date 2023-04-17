@@ -57,4 +57,4 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 });
 
 
-Route::post('/language', [LanguageController::class, 'changeLanguage'])->name('language');
+Route::post('/language', [LanguageController::class, 'changeLanguage'])->name('language')->middleware('setlocale');

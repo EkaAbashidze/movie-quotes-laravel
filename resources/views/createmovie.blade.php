@@ -38,7 +38,11 @@
                 @csrf
                 <div class="mb-4">
                     <label for="title" class="block text-gray-700 font-bold mb-2">{{ __('messages.movie_title') }}</label>
-                    <input id="title" name="title" type="text" class="w-full border border-gray-300 p-2 rounded-md" required>
+                    <input id="title" name="title[en]" type="text" class="w-full border border-gray-300 p-2 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="title" class="block text-gray-700 font-bold mb-2">{{ __('messages.movie_title_geo') }}</label>
+                    <input id="title" name="title[ka]" type="text" class="w-full border border-gray-300 p-2 rounded-md" required>
                 </div>
 
                 <div class="flex w-full">

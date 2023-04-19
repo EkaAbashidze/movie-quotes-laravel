@@ -45,7 +45,6 @@ class QuoteController extends Controller
 public function edit(Quote $quote)
 {
 
-    // dd($quote);
     $movies = Movie::all();
     $quote->trans = $quote->getTranslations('quote');
     return view('editquote', compact('quote', 'movies'));

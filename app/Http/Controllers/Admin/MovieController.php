@@ -26,7 +26,13 @@ class MovieController extends Controller
         $attributes = $request->validated();
 
         $movie = new Movie;
-        $movie->title = $attributes['title'];
+
+        $movie->title = [
+            'en' => $attributes['title']['en'],
+            'ka' => $attributes['title']['ka'],
+        ];
+
+
         $movie->save();
 
         return redirect()->route('admin.dashboard')->with('success', 'Movie created successfully.');
@@ -35,6 +41,7 @@ class MovieController extends Controller
 
     public function edit(Movie $movie)
     {
+        $movie->trans = $movie->getTranslations('title');
         return view('editmovie', compact('movie'));
     }
 
@@ -43,7 +50,10 @@ class MovieController extends Controller
 
         $attributes = $request->validated();
 
-        $movie->title = $attributes['title'];
+        $movie->title->replaceTranslations('title', [
+            'en' => $attributes['title']['en'],
+            'ka' => $attributes['title']['ka'],
+        ]);
 
         $movie->update();
 

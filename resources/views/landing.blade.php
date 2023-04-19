@@ -27,7 +27,7 @@
 
       @if($movie)
 
-      <h1 class="text-3xl font-bold text-white mt-16 mb-28 max-w-[800px]">{{ __($randomQuote->quote_en) }}</h1>
+      <h1 class="text-3xl font-bold text-white mt-16 mb-28 max-w-[800px]">{{ __($randomQuote->quote) }}</h1>
         <a href="{{ route('movies.show', $movie->id) }}" class="text-3xl font-bold text-white underline font-roboto">{{ __($movie->title) }}</a>
       @endif
 

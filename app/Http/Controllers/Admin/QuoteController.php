@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 
 use App\Http\Requests\StoreQuoteRequest;
-use App\Http\Requests\EditQuoteRequest;
+use App\Http\Requests\UpdateQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\Http\Request;
@@ -23,53 +23,55 @@ class QuoteController extends Controller
 
         $attributes = $request->validated();
 
-        $quote = new Quote();
-        $quote->quote_en = $attributes['quote_en'];
-        $quote->quote_ka = $attributes['quote_ka'];
-        $quote->movie_id = $attributes['movie_id'];
+        $quote = [
+          'en' => $attributes['quote']['en'],
+          'ka' => $attributes['quote']['ka'],
+        ];
 
+        $quoteModel = new Quote();
+        $quoteModel->quote = $quote;
+        $quoteModel->movie_id = $attributes['movie_id'];
 
 
         $path = $request->file('thumbnail')->store('public/thumbnails');
         $thumbnail = str_replace('public/', '', $path);
-        $quote->thumbnail = $thumbnail;
+        $quoteModel->thumbnail = $thumbnail;
 
-
-
-
-        $quote->save();
+        $quoteModel->save();
 
         return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
     }
 
-    public function edit(Quote $quote)
-    {
-        $movies = Movie::all();
-        return view('editquote', compact('quote', 'movies'));
-    }
+public function edit(Quote $quote)
+{
 
-    public function update(EditQuoteRequest $request, Quote $quote)
-    {
+    $movies = Movie::all();
+    $quote->trans = $quote->getTranslations('quote');
+    return view('editquote', compact('quote', 'movies'));
+}
 
-        $attributes = $request->validated();
+  public function update(UpdateQuoteRequest $request, Quote $quote)
+  {
 
-        $quote->quote_en = $attributes['quote_en'];
-        $quote->quote_ka = $attributes['quote_ka'];
-        $quote->movie_id = $attributes['movie_id'];
+      $attributes = $request->validated();
+    
+      $quote->replaceTranslations('quote', [
+        'en' => $attributes['quote']['en'],
+        'ka' => $attributes['quote']['ka'],
+      ]);
 
-        if ($request->hasFile('thumbnail')) {
-                $path = $request->file('thumbnail')->store('public/thumbnails');
-                $thumbnail = str_replace('public/', '', $path);
-                $quote->thumbnail = $thumbnail;
-            }
-            
-        $quote->save();
+      if (!empty($attributes['thumbnail'])) {
+          $path = $attributes['thumbnail']->store('public/thumbnails');
+          $thumbnail = str_replace('public/', '', $path);
+          $quote->thumbnail = $thumbnail;
+      }
 
-        return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
-    }
+      $quote->update();
+
+      return redirect()->route('admin.dashboard')->with('success', 'Quote updated successfully.');
+  }
 
 
-        
     public function destroy($id)
     {
         $quote = Quote::find($id);

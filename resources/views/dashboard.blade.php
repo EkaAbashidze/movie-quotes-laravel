@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite('resources/css/app.css')
-  <title>Admin Dashboard</title>
+<x-html/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+  <title>Admin Dashboard</title>
 </head>
 <body>
 
@@ -13,7 +8,7 @@
 <div class="flex flex-row min-h-screen w-full">
   
  <x-menu/>
- 
+
     <div class="flex flex-col flex-1 bg-gray-100 p-8">
         <h2 class="text-2xl font-bold mb-8">{{ __('messages.movies_list') }}</h2>
 

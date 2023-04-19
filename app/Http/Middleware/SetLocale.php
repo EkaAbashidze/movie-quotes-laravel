@@ -10,13 +10,9 @@ class SetLocale
 {
     public function handle($request, Closure $next)
     {
-        $language = $request->session('language');
 
-        if ($language === null) {
-            App::setLocale(config('app.locale'));
-        } else {
-            App::setLocale($language);
-        }
+        $language = session('locale', config('app.locale'));
+        App::setLocale($language);
 
         return $next($request);
     }

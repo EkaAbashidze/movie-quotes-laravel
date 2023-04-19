@@ -12,9 +12,12 @@ class LanguageController extends Controller
     public function changeLanguage(Request $request)
     {
         $language = $request->input('language');
-        Session::put('locale', $language);
+        
 
-        return redirect()->route('admin.dashboard')->with('success', 'Language changed successfully.');
+        App::setlocale($language);
+        session()->put('local', $language);
+
+        return redirect()->back()->with('success', 'Language changed successfully.');
     }
 
 }

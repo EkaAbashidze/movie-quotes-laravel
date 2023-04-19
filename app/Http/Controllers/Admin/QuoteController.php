@@ -44,32 +44,30 @@ class QuoteController extends Controller
 
 public function edit(Quote $quote)
 {
-    $movies = Movie::all();
-    $enTranslations = $quote->getTranslations('quote');
 
-    return view('editquote', compact('quote', 'movies', 'enTranslations'));
+    // dd($quote);
+    $movies = Movie::all();
+    $quote->trans = $quote->getTranslations('quote');
+    return view('editquote', compact('quote', 'movies'));
 }
 
   public function update(UpdateQuoteRequest $request, Quote $quote)
   {
 
-    $attributes = $request->validated();
+      $attributes = $request->validated();
     
       $quote->replaceTranslations('quote', [
         'en' => $attributes['quote']['en'],
         'ka' => $attributes['quote']['ka'],
       ]);
 
-
-      $quote->movie_id = $attributes['movie_id'];
-
-      if ($request->hasFile('thumbnail')) {
-          $path = $request->file('thumbnail')->store('public/thumbnails');
+      if (!empty($attributes['thumbnail'])) {
+          $path = $attributes['thumbnail']->store('public/thumbnails');
           $thumbnail = str_replace('public/', '', $path);
           $quote->thumbnail = $thumbnail;
       }
 
-      $quote->update($attributes);
+      $quote->update();
 
       return redirect()->route('admin.dashboard')->with('success', 'Quote updated successfully.');
   }

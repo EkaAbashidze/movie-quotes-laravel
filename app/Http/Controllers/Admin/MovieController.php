@@ -44,18 +44,8 @@ class MovieController extends Controller
         $attributes = $request->validated();
 
         $movie->title = $attributes['title'];
-        
-        foreach ($movie->quotes as $i => $quote) {
-            $quoteAttributes = [
-                'quote' => [
-                    'en' => $attributes['quote']['en'][$i],
-                    'ka' => $attributes['quote']['ka'][$i],
-                ]
-            ];
-            $quote->update($quoteAttributes);
-        }
 
-        $movie->update($attributes);
+        $movie->update();
 
         return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
     }

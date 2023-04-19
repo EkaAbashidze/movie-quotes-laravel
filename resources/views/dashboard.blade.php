@@ -32,13 +32,13 @@
         </ul>
         
 <div class="flex flex-row justify-start items-center p-8">
-    <form action="{{ route('language') }}" method="POST">
-        @csrf
+    <form action="{{ route('language.change', 'en') }}" method="GET">
+        
         <input type="hidden" name="language" value="en">
         <button type="submit" class="border border-white w-10 h-10 rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">En</button>
     </form>
-    <form action="{{ route('language') }}" method="POST">
-        @csrf
+    <form action="{{ route('language.change', 'ka') }}" method="GET">
+        
         <input type="hidden" name="language" value="ka">
         <button type="submit" class="border border-white w-10 h-10 rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer ml-4">Ka</button>
     </form>

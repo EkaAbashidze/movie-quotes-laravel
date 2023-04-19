@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\LanguageController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +41,7 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::get('/quotes/{quote}/edit', [QuoteController::class, 'edit'])->name('quotes.edit');
 
-    Route::put('/quotes/', [QuoteController::class, 'update'])->name('quotes.update');
+    Route::put('/quotes/{quote}', [QuoteController::class, 'update'])->name('quotes.update');
 
     Route::delete('/quotes/{id}', [QuoteController::class, 'destroy'])->name('quotes.destroy');
     
@@ -50,11 +51,16 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
 
     Route::get('/movies/{movie}/edit', [MovieController::class, 'edit'])->name('movies.edit');
 
-    Route::put('/movies/}', [MovieController::class, 'update'])->name('movies.update');
+    Route::put('/movies/{movie}', [MovieController::class, 'update'])->name('movies.update');
 
     Route::delete('/movies/{id}', [MovieController::class, 'destroy'])->name('movies.destroy');
 
-});
+})->middleware('setlocale');
 
-
-Route::post('/language', [LanguageController::class, 'changeLanguage'])->name('language')->middleware('setlocale');
+Route::get('language/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'ka'])) {
+        App::setLocale($locale);
+        session()->put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('language.change');

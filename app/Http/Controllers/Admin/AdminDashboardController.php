@@ -8,6 +8,7 @@ use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class AdminDashboardController extends Controller
 {

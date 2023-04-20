@@ -16,8 +16,8 @@ class StoreQuoteRequest extends FormRequest
     {
 
         return [
-            'quote_en' => 'required|string',
-            'quote_ka' => 'required|string',
+            'quote.en' => 'required|string',
+            'quote.ka' => 'required|string',
             'movie_id' => 'required|exists:movies,id',
             'thumbnail' => 'required',
         ];

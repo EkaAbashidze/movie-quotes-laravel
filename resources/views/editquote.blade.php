@@ -6,7 +6,9 @@
 
 <div class="flex flex-row h-screen w-full">
 
+
  <x-menu/>
+
 
         <div class="flex flex-col flex-1 bg-gray-100 p-8">
             <h2 class="text-2xl font-bold mb-8">{{ __('messages.edit_quote') }}</h2>

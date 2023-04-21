@@ -33,9 +33,9 @@ class QuoteController extends Controller
         $quoteModel->movie_id = $attributes['movie_id'];
 
 
-        $path = $request->file('thumbnail')->store('public/thumbnails');
-        $thumbnail = str_replace('public/', '', $path);
-        $quoteModel->thumbnail = $thumbnail;
+        $path = $request->file('thumbnail')->store('thumbnails');
+         $thumbnail = $path; 
+          $quoteModel->thumbnail = $thumbnail;
 
         $quoteModel->save();
 

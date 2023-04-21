@@ -61,9 +61,9 @@ public function edit(Quote $quote)
       ]);
 
       if (!empty($attributes['thumbnail'])) {
-          $path = $attributes['thumbnail']->store('public/thumbnails');
-          $thumbnail = str_replace('public/', '', $path);
-          $quote->thumbnail = $thumbnail;
+        $path = $attributes['thumbnail']->store('thumbnails'); 
+         $thumbnail = $path; 
+         $quote->thumbnail = $thumbnail; 
       }
 
       $quote->update();

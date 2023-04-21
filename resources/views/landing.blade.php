@@ -3,10 +3,25 @@
 </head>
 <body>
 
-    <div class="flex flex-col gap-y-[15px] fixed top-[50%] left-[50px] top-1/2 transform  -translate-y-1/2" >
-      <div class="border border-white w-[58px] h-[58px] rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">En</div>
-        <div class="border border-white w-[58px] h-[58px] rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">Ka</div>
+
+
+  
+  <form action="{{ route('language.change', 'en') }}" method="GET">
+  <div class="flex flex-col gap-y-[15px] fixed top-[50%] left-[50px] top-1/2 transform  -translate-y-1/2" >
+            <input type="hidden" name="language" value="en">
+
+      <button type="submit" class="border border-white w-[58px] h-[58px] rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">En</button>
+
+          </form>
+    <form action="{{ route('language.change', 'ka') }}" method="GET">
+              <input type="hidden" name="language" value="ka">
+
+      <button type="submit" class="border border-white w-[58px] h-[58px] rounded-full text-white flex items-center font-roboto justify-center hover:text-gray-dark hover:bg-white cursor-pointer">Ka</button>
+
+
     </div>
+  </form>
+
 
 
     <div class="h-screen flex flex-col justify-center">

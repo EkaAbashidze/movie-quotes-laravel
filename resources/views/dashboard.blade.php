@@ -7,11 +7,6 @@
 
 <div class="flex flex-row min-h-screen w-full">
   
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
  <x-menu/>
 
     <div class="flex flex-col flex-1 bg-gray-100 p-8">

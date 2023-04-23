@@ -4,8 +4,6 @@
 <body>
 
 
-
-  
   <form action="{{ route('language.change', 'en') }}" method="GET">
   <div class="flex flex-col gap-y-[15px] fixed top-[50%] left-[50px] top-1/2 transform  -translate-y-1/2" >
             <input type="hidden" name="language" value="en">

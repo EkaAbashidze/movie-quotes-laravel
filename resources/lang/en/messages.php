@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'create_movie' => 'Create Movie',
     'create_quote' => 'Create Quote',
     'admin_panel' => "Admin Panel",
@@ -24,5 +23,4 @@ return [
     'edit_movie' => 'Edit Movie',
     'update' => 'Update',
     'edit_quote' => 'Edit Quote',
-    
 ];

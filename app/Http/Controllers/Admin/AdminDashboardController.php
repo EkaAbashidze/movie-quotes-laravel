@@ -17,9 +17,6 @@ public function index(): View
     {
         $movies = Movie::all();
         $quotes = Quote::all();
-
         return view('dashboard', compact('movies', 'quotes'));
     }
-
-    
 }

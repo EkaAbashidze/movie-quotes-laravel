@@ -13,16 +13,13 @@ class SessionsController extends Controller
     }
 
     public function login(): RedirectResponse {
-
         $attributes = request()->validate([
           'email' => 'required|email',
           'password' => 'required',
         ]);
 
         if (auth()->attempt($attributes)) {
-
           return redirect('/admin/dashboard')->with('success', 'Welcome');
-
         } else {
           return back()
           ->withInput()
@@ -31,11 +28,7 @@ class SessionsController extends Controller
     }
 
     public function destroy() {
-
       auth()->logout();
-
       return redirect('/')->with('success', 'Goodbye!');
-
     }
-
 }

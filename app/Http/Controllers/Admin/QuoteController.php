@@ -13,42 +13,39 @@ use Illuminate\Http\Request;
 
 class QuoteController extends Controller
 {
-    public function create() {
-        $movies = Movie::all();
-        return view('create', compact('movies'));
-    }
+  public function create() {
+      $movies = Movie::all();
+      return view('create', compact('movies'));
+  }
 
-    public function store(StoreQuoteRequest $request)
-    {
+  public function store(StoreQuoteRequest $request)
+  {
+      $attributes = $request->validated();
+      $quote = [
+        'en' => $attributes['quote']['en'],
+        'ka' => $attributes['quote']['ka'],
+      ];
 
-        $attributes = $request->validated();
+      $quoteModel = new Quote();
+      $quoteModel->quote = $quote;
+      $quoteModel->movie_id = $attributes['movie_id'];
 
-        $quote = [
-          'en' => $attributes['quote']['en'],
-          'ka' => $attributes['quote']['ka'],
-        ];
+      $path = $request->file('thumbnail')->store('thumbnails');
+      $thumbnail = $path; 
+      $quoteModel->thumbnail = $thumbnail;
 
-        $quoteModel = new Quote();
-        $quoteModel->quote = $quote;
-        $quoteModel->movie_id = $attributes['movie_id'];
+      $quoteModel->save();
 
+      return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
+  }
 
-        $path = $request->file('thumbnail')->store('thumbnails');
-         $thumbnail = $path; 
-          $quoteModel->thumbnail = $thumbnail;
+  public function edit(Quote $quote)
+  {
 
-        $quoteModel->save();
-
-        return redirect()->route('admin.dashboard')->with('success', 'Quote created successfully.');
-    }
-
-public function edit(Quote $quote)
-{
-
-    $movies = Movie::all();
-    $quote->trans = $quote->getTranslations('quote');
-    return view('editquote', compact('quote', 'movies'));
-}
+      $movies = Movie::all();
+      $quote->trans = $quote->getTranslations('quote');
+      return view('editquote', compact('quote', 'movies'));
+  }
 
   public function update(UpdateQuoteRequest $request, Quote $quote)
   {
@@ -75,9 +72,7 @@ public function edit(Quote $quote)
     public function destroy($id)
     {
         $quote = Quote::find($id);
-
         $quote->delete();
-
         return redirect()->route('admin.dashboard')->with('success', 'Quote deleted successfully.');
     }
 }

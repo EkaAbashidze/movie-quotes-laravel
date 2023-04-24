@@ -50,10 +50,8 @@ class MovieController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Movie $movie)
     {
-        $movie = Movie::find($id);
-        $movie->quotes()->delete();
         $movie->delete();
         return redirect()->route('admin.dashboard')->with('success', 'Movie deleted successfully.');
     }

@@ -69,9 +69,8 @@ class QuoteController extends Controller
   }
 
 
-    public function destroy($id)
+    public function destroy(Quote $quote)
     {
-        $quote = Quote::find($id);
         $quote->delete();
         return redirect()->route('admin.dashboard')->with('success', 'Quote deleted successfully.');
     }

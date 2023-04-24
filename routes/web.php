@@ -24,10 +24,9 @@ Route::get('/', [MoviesController::class, 'index'])->name('home');
 
 Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.show');
 
-Route::get('admin/authorization', [SessionsController::class, 'index'])->name('admin.authorization');
+Route::get('admin/login', [SessionsController::class, 'index'])->name('admin.login');
 
-Route::post('admin/authorization', [SessionsController::class, 'login'])->name('admin.authorized');
-
+Route::post('admin/login', [SessionsController::class, 'login'])->name('admin.loggedin');
 
 Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
     Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard');

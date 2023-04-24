@@ -44,10 +44,4 @@ Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
     Route::delete('/movies/{movie}', [MovieController::class, 'destroy'])->name('movies.destroy');
 })->middleware('setlocale');
 
-Route::get('language/{locale}', function ($locale) {
-    if (in_array($locale, ['en', 'ka'])) {
-        App::setLocale($locale);
-        session()->put('locale', $locale);
-    }
-    return redirect()->back();
-})->name('language.change');
+Route::get('language/{locale}', [LanguageController::class, 'changeLanguage'])->name('language.change');

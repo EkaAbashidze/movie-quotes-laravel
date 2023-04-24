@@ -41,7 +41,6 @@ class QuoteController extends Controller
 
   public function edit(Quote $quote)
   {
-
       $movies = Movie::all();
       $quote->trans = $quote->getTranslations('quote');
       return view('editquote', compact('quote', 'movies'));
@@ -49,9 +48,8 @@ class QuoteController extends Controller
 
   public function update(UpdateQuoteRequest $request, Quote $quote)
   {
-
       $attributes = $request->validated();
-    
+
       $quote->replaceTranslations('quote', [
         'en' => $attributes['quote']['en'],
         'ka' => $attributes['quote']['ka'],
@@ -67,7 +65,6 @@ class QuoteController extends Controller
 
       return redirect()->route('admin.dashboard')->with('success', 'Quote updated successfully.');
   }
-
 
     public function destroy(Quote $quote)
     {

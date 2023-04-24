@@ -41,7 +41,7 @@ class MovieController extends Controller
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
         $attributes = $request->validated();
-        $movie->title->replaceTranslations('title', [
+        $movie->replaceTranslations('title', [
             'en' => $attributes['title']['en'],
             'ka' => $attributes['title']['ka'],
         ]);

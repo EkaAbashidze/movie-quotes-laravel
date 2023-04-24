@@ -4,6 +4,8 @@
     <li class="py-2 hover:underline"><a href="/">{{ __('messages.main_page') }}</a></li>
     <li class="py-2 hover:underline"><a href="{{ route('movies.create') }}">{{ __('messages.create_movie') }}</a></li>
     <li class="py-2 hover:underline"><a href="{{ route('quotes.create') }}">{{ __('messages.create_quote') }}</a></li>
+    <li class="py-2 hover:underline"><a href="#movies_list">{{ __('messages.movies_list') }}</a></li>
+    <li class="py-2 hover:underline"><a href="#quotes_list">{{ __('messages.quotes_list') }}</a></li>
     <li class="py-2 hover:underline">
     <form method="POST" action="{{ route('logout') }}">
       @csrf

@@ -7,7 +7,7 @@
 <div class="flex flex-row min-h-screen w-full">  
    <x-menu/>
     <div class="flex flex-col flex-1 bg-gray-100 p-8">
-      <h2 class="text-2xl font-bold mb-8">{{ __('messages.movies_list') }}</h2>
+      <h2 id="movies_list" class="text-2xl font-bold mb-8">{{ __('messages.movies_list') }}</h2>
       @foreach($movies as $movie)
         <div class="bg-white rounded-lg p-4 shadow-lg flex mb-4 gap-x-[15px]">    
           @php
@@ -28,7 +28,7 @@
           </div>
         </div>
       @endforeach
-      <h2 class="text-2xl font-bold mb-8 mt-8">{{ __('messages.quotes_list') }}</h2>
+      <h2 id="quotes_list" class="text-2xl font-bold mb-8 mt-8">{{ __('messages.quotes_list') }}</h2>
       <div class="grid grid-cols-1 gap-4">
 
       @foreach($quotes as $quote)

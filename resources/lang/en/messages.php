@@ -23,4 +23,6 @@ return [
     'edit_movie' => 'Edit Movie',
     'update' => 'Update',
     'edit_quote' => 'Edit Quote',
+    'movies_list' => "Movies List",
+    'quotes_list' => "Quotes List"
 ];

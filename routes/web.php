@@ -31,7 +31,7 @@ Route::post('admin/authorization', [SessionsController::class, 'login'])->name('
 
 Route::prefix('admin/dashboard')->middleware('admin')->group(function () {
     Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-    Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
+    Route::post('/logout', [SessionsController::class, 'logout'])->name('logout');
     Route::get('/create', [QuoteController::class, 'create'])->name('quotes.create');
     Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');
     Route::get('/quotes/{quote}/edit', [QuoteController::class, 'edit'])->name('quotes.edit');

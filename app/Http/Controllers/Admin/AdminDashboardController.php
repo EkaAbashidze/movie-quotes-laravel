@@ -15,7 +15,7 @@ class AdminDashboardController extends Controller
     
 public function index(): View
     {
-        $movies = Movie::all();
+        $movies = Movie::with('quotes')->get();
         $quotes = Quote::all();
         return view('dashboard', compact('movies', 'quotes'));
     }

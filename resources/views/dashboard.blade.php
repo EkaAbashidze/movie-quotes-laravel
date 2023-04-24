@@ -10,11 +10,7 @@
       <h2 id="movies_list" class="text-2xl font-bold mb-8">{{ __('messages.movies_list') }}</h2>
       @foreach($movies as $movie)
         <div class="bg-white rounded-lg p-4 shadow-lg flex mb-4 gap-x-[15px]">    
-          @php
-            $randomQuote = $movie->quotes()->inRandomOrder()->first();
-            $thumbnail = $randomQuote->thumbnail;
-          @endphp
-          <img class="w-16 h-16 rounded-md object-cover" src="{{ asset('storage') }}/{{ $thumbnail }}" alt="{{ __('Movie Scene') }}">
+          <img class="w-16 h-16 rounded-md object-cover" src="{{ asset('storage') }}/{{ $movie->quotes->isNotEmpty() ? $movie->quotes->first()->thumbnail : ''}}" alt="{{ __('Movie Scene') }}">
           <div>
             <h3 class="text-lg font-bold mb-2">{{ __($movie->title) }}</h3>
             <div class="flex gap-x-[30px]">

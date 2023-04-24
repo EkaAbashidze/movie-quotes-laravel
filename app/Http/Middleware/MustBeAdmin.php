@@ -17,11 +17,9 @@ class MustBeAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-
         if (!auth()->check()) {
-            return redirect('/admin/authorization');
+            return redirect('/admin/login');
         }
-
         return $next($request);
     }
 }

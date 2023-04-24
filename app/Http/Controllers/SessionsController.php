@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 
 class SessionsController extends Controller
 {
@@ -12,17 +13,11 @@ class SessionsController extends Controller
         return view('login');
     }
 
-    public function login(): RedirectResponse {
-
-        $attributes = request()->validate([
-          'email' => 'required|email',
-          'password' => 'required',
-        ]);
+    public function login(LoginRequest $request): RedirectResponse {
+        $attributes = $request->validated();
 
         if (auth()->attempt($attributes)) {
-
           return redirect('/admin/dashboard')->with('success', 'Welcome');
-
         } else {
           return back()
           ->withInput()
@@ -30,12 +25,8 @@ class SessionsController extends Controller
         }
     }
 
-    public function destroy() {
-
+    public function logout() {
       auth()->logout();
-
       return redirect('/')->with('success', 'Goodbye!');
-
     }
-
 }

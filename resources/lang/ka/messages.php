@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'create_movie' => 'ფილმის დამატება',
     'create_quote' => 'ციტატის დამატება',
     'admin_panel' => "ადმინის პანელი",
@@ -24,4 +23,6 @@ return [
     'edit_movie' => 'ფილმის დარედაქტირება',
     'update' => 'განახლება',
     'edit_quote' => 'ციტატის დარედაქტირება',
+    'movies_list' => "ყველა ფილმი",
+    'quotes_list' => "ყველა ციტატა"
 ];

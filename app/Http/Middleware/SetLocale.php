@@ -10,10 +10,8 @@ class SetLocale
 {
     public function handle($request, Closure $next)
     {
-
         $language = session('locale', config('app.locale'));
         App::setLocale($language);
-
         return $next($request);
     }
 }

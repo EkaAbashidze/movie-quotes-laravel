@@ -9,7 +9,7 @@ use Spatie\Translatable\HasTranslations;
 class Movie extends Model
 {
     use HasFactory, HasTranslations;
-    
+
     public $translatable = ['title'];
 
     protected $fillable = ['title'];
@@ -17,5 +17,4 @@ class Movie extends Model
     public function quotes() {
         return $this->hasMany(Quote::class);
     }
-    
 }

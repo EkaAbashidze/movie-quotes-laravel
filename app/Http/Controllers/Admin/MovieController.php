@@ -21,20 +21,13 @@ class MovieController extends Controller
 
     public function store(StoreMovieRequest $request)
     {
-
-        
         $attributes = $request->validated();
-
         $movie = new Movie;
-
         $movie->title = [
             'en' => $attributes['title']['en'],
             'ka' => $attributes['title']['ka'],
         ];
-
-
         $movie->save();
-
         return redirect()->route('admin.dashboard')->with('success', 'Movie created successfully.');
     }
 
@@ -47,28 +40,19 @@ class MovieController extends Controller
 
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-
         $attributes = $request->validated();
-
-        $movie->title->replaceTranslations('title', [
+        $movie->replaceTranslations('title', [
             'en' => $attributes['title']['en'],
             'ka' => $attributes['title']['ka'],
         ]);
-
         $movie->update();
-
         return redirect()->route('admin.dashboard')->with('success', 'Movie updated successfully.');
     }
 
 
-    public function destroy($id)
+    public function destroy(Movie $movie)
     {
-        $movie = Movie::find($id);
-
-        $movie->quotes()->delete();
-
         $movie->delete();
-
         return redirect()->route('admin.dashboard')->with('success', 'Movie deleted successfully.');
     }
 }

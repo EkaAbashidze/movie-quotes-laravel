@@ -24,7 +24,9 @@ Route::get('/', [MoviesController::class, 'index'])->name('home');
 
 Route::get('/listing/{movie}', [MoviesController::class, 'show'])->name('movies.show');
 
-Route::get('admin/login', [SessionsController::class, 'index'])->name('admin.login');
+Route::get('admin/login', function () {
+    return view('login');
+})->name('admin.login');
 
 Route::post('admin/login', [SessionsController::class, 'login'])->name('admin.loggedin');
 

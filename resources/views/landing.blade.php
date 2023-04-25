@@ -16,11 +16,9 @@
 
 <div class="h-screen flex flex-col justify-center">
   <div class="mx-auto text-center flex flex-col content-center justify-evenly items-center">
-    @php
-      $randomQuote = $movie->quotes()->inRandomOrder()->first();
-      $thumbnail = $randomQuote->thumbnail;
-    @endphp
-    <img class="max-w-[700px] rounded-md" src="{{ asset('storage') }}/{{ $thumbnail }}" alt="{{ __('Movie Scene') }}">
+
+    <img class="w-[800px] rounded-md object-cover" src="{{ asset('storage') }}/{{ $movie->quotes->isNotEmpty() ? $movie->quotes->first()->thumbnail : ''}}" alt="{{ __('Movie Scene') }}">
+
     @if($movie)
       <h1 class="text-3xl font-bold text-white mt-16 mb-28 max-w-[800px]">{{ __($randomQuote->quote) }}</h1>
       <a href="{{ route('movies.show', $movie->id) }}" class="text-3xl font-bold text-white underline font-roboto">{{ __($movie->title) }}</a>

@@ -1,5 +1,3 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 ## About Movie Quotes App
 
 The Movie Quotes App is a web application built with the Laravel framework and utilizes a MySQL database. The app displays a random quote from a movie on the homepage, and also includes a page for each movie that displays all of the quotes associated with it.
@@ -19,7 +17,6 @@ The back-end includes CRUD functionality for managing movies and their associate
 * [Getting Started](#getting-started)
 * [Migrations](#migration)
 * [Development](#development)
-* [Project Structure](#project-structure)
 * [Database](#database-backups)
 
 #
@@ -140,35 +137,6 @@ To watch files during development, execute:
 ```
 it will watch JS files and on change it will rebuild them.
 
-
-#
-### Project Structure
-
-```bash
-├─── app
-│   ├─── Console
-│   ├─── Exceptions
-│   ├─── Http
-│   ├─── Models
-│   ├─── Providers
-├─── bootstrap
-├─── config
-├─── database
-├─── node-modules
-├─── public
-├─── resources
-├─── routes
-├─── storage
-├─── tests
-├─── vendor
-- .env
-- artisan
-- composer.json
-- package.json
-- phpunit.xml
-- tailwind.config.js
-- vite.config.js
-```
 
 ## Database
 

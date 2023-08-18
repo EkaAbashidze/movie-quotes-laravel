@@ -55,7 +55,7 @@ The back-end includes CRUD functionality for managing movies and their associate
 ### Getting Started
 1\. First, you need to clone Movie Quotes repository from github:
 ```sh
-git clone https://github.com/RedberryInternship/ekaterine-abashidze-movie-quotes.git
+git clone https://github.com/EkaAbashidze/movie-quotes-laravel.git
 ```
 
 2\. Run *composer install* to install all the dependencies.
